@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<config>
+
+    <browserType>Chrome</browserType>
+    <chromeDriverPath>/Users/igor_shved/Documents/Java/libraries/webDrivers/chromedriver</chromeDriverPath>
+    <firefoxDriverPath>/Users/igor_shved/Documents/Java/libraries/webDrivers/geckodriver</firefoxDriverPath>
+    <buyMeLandingPageUrl>https://buyme.co.il/</buyMeLandingPageUrl>
+    <extentReportsFilePath>/Users/igor_shved/Desktop/extent.html</extentReportsFilePath>
+    <screenShotPath>/Users/igor_shved/Desktop/shots/</screenShotPath>
+
+</config>
