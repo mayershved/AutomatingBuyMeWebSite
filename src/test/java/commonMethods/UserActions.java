@@ -11,7 +11,7 @@ public class UserActions {
         driver.get(URL);
     }
 
-     public void clickElement( By element){
+    public void clickElement( By element){
         driver.findElement(element).click();
     }
 

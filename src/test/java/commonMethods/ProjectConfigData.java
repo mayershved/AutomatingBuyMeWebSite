@@ -18,6 +18,9 @@ public class ProjectConfigData {
     private String buyMeLandingPageUrl = getDataFromXml("buyMeLandingPageUrl");
     private String extentReportsFilePath = getDataFromXml("extentReportsFilePath");
     private String screenShotPath = getDataFromXml("screenShotPath");
+    private String userFirstName = getDataFromXml("userFirstName");
+    private String userEmail = getDataFromXml("userEmail");
+    private String userPassword = getDataFromXml("userPassword");
 
 
     public String getBrowserType(){
@@ -42,6 +45,18 @@ public class ProjectConfigData {
 
     public String getScreenShotPath(){
         return this.screenShotPath;
+    }
+
+    public String getUserFirstName(){
+        return this.userFirstName;
+    }
+
+    public String getUserEmail(){
+        return this.userEmail;
+    }
+
+    public String getUserPassword(){
+        return this.userPassword;
     }
 
     /***
