@@ -10,15 +10,15 @@ public class HomeScreen extends UserActions {
 
     public By priceDropMenu = By.xpath("//span[text() = 'סכום']");
 
-    public  By priceOption = By.cssSelector("li[data-option-array-index = '3']");
+    public  By priceOption = By.xpath("//li[contains(text(),'300-499')]");
 
     public By areaDropMenu = By.xpath("//span[text() = 'אזור']");
 
-    public By areaOption = By.xpath("//li[text() = 'פריסה ארצית']");;
+    public By areaOption = By.xpath("//li[text() = 'מרכז']");;
 
     public By categoryDropMenu = By.xpath("//span[text() = 'קטגוריה']");
 
-    public By categoryOption = By.cssSelector("li[data-option-array-index = '3']");
+    public By categoryOption = By.xpath("//li[text() = 'גיפט קארד למסעדות שף']");
 
     public By submitUserChoose = By.cssSelector("a.ui-btn.search.ember-view");
 
