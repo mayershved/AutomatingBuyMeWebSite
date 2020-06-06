@@ -2,11 +2,11 @@ package pageObjects;
 
 import commonMethods.UserActions;
 import org.openqa.selenium.By;
-import singleton.SingletonDriver;
+import org.openqa.selenium.WebDriver;
 
 public class SignInScreen extends UserActions {
 
-    protected static SingletonDriver singletonDriver = SingletonDriver.getInstance();
+   // public static SingletonDriver singletonDriver = SingletonDriver.getInstance();
 
     public By signInButton = By.cssSelector(".seperator-link");
     public By startSignIn = By.xpath("//*[text() = 'להרשמה']");
@@ -20,7 +20,7 @@ public class SignInScreen extends UserActions {
     public By passwordElement = By.cssSelector("input#valPass");
     public By submitButton = By.cssSelector("button.ui-btn.orange.large");
 
-    public SignInScreen(){
-        super(singletonDriver.driver);
+    public SignInScreen(WebDriver driver){
+        super(driver);
     }
 }

@@ -1,19 +1,22 @@
 package projectTests;
 
 import commonMethods.ProjectConfigData;
-import org.junit.*;
-import org.junit.runners.MethodSorters;
 import pageObjects.SignInScreen;
+import org.junit.runners.MethodSorters;
+import org.junit.*;
+import singleton.SingletonDriver;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class SignInTest extends SignInScreen {
+public class SignInTest  {
 
-    private SignInScreen signIn = new SignInScreen();
+    private static SingletonDriver singletonDriver = SingletonDriver.getInstance();
+    private static SignInScreen signIn;
     private ProjectConfigData configData = new ProjectConfigData();
 
     @BeforeClass
     public static void beforeClass() {
         singletonDriver.setProjectDriver();
+        signIn = new SignInScreen(singletonDriver.driver);
     }
 
     @Test
@@ -24,7 +27,7 @@ public class SignInTest extends SignInScreen {
 
     @Test
     public void test_2_ClickSignIn() throws InterruptedException {
-        signIn.clickElement(signInButton);
+        signIn.clickElement(signIn.signInButton);
         System.out.println("test_2_ClickSignIn completted successully");
     }
 //
@@ -42,13 +45,13 @@ public class SignInTest extends SignInScreen {
 //
     @Test
     public void test_5_EnterEmail() {
-        signIn.userInput(emailAdressElement, configData.getUserEmail());
+        signIn.userInput(signIn.emailAdressElement, configData.getUserEmail());
         System.out.println("test_5_EnterEmail completted successully");
     }
 
     @Test
     public void test_6_EnterPassword() {
-        signIn.userInput(sPasswordElement, configData.getUserPassword());
+        signIn.userInput(signIn.sPasswordElement, configData.getUserPassword());
         System.out.println("test_6_EnterPassword completted successully");
     }
 
@@ -68,7 +71,7 @@ public class SignInTest extends SignInScreen {
 //
     @Test
     public void test_8_SubmitUser() {
-        signIn.clickElement(submitButton);
+        signIn.clickElement(signIn.submitButton);
         System.out.println("test_8_SubmitUser completted successully");
     }
 }

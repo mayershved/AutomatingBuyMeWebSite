@@ -1,4 +1,9 @@
 package projectTests;
 
-public class GiftCardScreenTest {
+import pageObjects.GiftCardsScreen;
+
+public class GiftCardScreenTest extends GiftCardsScreen {
+
+
+
 }

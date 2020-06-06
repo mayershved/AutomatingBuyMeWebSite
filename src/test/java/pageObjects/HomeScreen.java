@@ -8,7 +8,7 @@ public class HomeScreen extends UserActions {
 
     protected static SingletonDriver singletonDriver = SingletonDriver.getInstance();
 
-    public By priceDropMenu = By.xpath("//span[text() = 'סכום']");
+    public By  priceDropMenu = By.xpath("//span[text() = 'סכום']");
 
     public  By priceOption = By.xpath("//li[contains(text(),'300-499')]");
 
