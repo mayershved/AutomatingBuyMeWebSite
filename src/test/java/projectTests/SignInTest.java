@@ -27,19 +27,19 @@ public class SignInTest extends SignInScreen {
         signIn.clickElement(signInButton);
         System.out.println("test_2_ClickSignIn completted successully");
     }
-
-    @Test
-    public void test_3_StartSignIn() {
-        signIn.clickElement(startSignIn);
-        System.out.println("test_3_StartSignIn completted successully");
-    }
-
-    @Test
-    public void test_4_EnterFirstName() {
-        signIn.userInput(firstNameElement, configData.getUserFirstName());
-        System.out.println("test_4_EnterFirstName completted successully");
-    }
-
+//
+////    @Test
+////    public void test_3_StartSignIn() {
+////        signIn.clickElement(startSignIn);
+////        System.out.println("test_3_StartSignIn completted successully");
+////    }
+//
+//    @Test
+//    public void test_4_EnterFirstName() {
+//        signIn.userInput(firstNameElement, configData.getUserFirstName());
+//        System.out.println("test_4_EnterFirstName completted successully");
+//    }
+//
     @Test
     public void test_5_EnterEmail() {
         signIn.userInput(emailAdressElement, configData.getUserEmail());
@@ -48,13 +48,27 @@ public class SignInTest extends SignInScreen {
 
     @Test
     public void test_6_EnterPassword() {
-        signIn.userInput(passwordElement, configData.getUserPassword());
+        signIn.userInput(sPasswordElement, configData.getUserPassword());
         System.out.println("test_6_EnterPassword completted successully");
     }
 
+
+//
+//    @Test
+//    public void test_6_EnterPassword() {
+//        signIn.userInput(passwordElement, configData.getUserPassword());
+//        System.out.println("test_6_EnterPassword completted successully");
+//    }
+//
+//    @Test
+//    public void test_7_ConfirmPassword() {
+//        signIn.userInput(confirmPasswordElement, configData.getUserPassword());
+//        System.out.println("test_7_ConfirmPassword completted successully");
+//    }
+//
     @Test
-    public void test_7_ConfirmPassword() {
-        signIn.userInput(confirmPasswordElement, configData.getUserPassword());
-        System.out.println("test_7_ConfirmPassword completted successully");
+    public void test_8_SubmitUser() {
+        signIn.clickElement(submitButton);
+        System.out.println("test_8_SubmitUser completted successully");
     }
 }

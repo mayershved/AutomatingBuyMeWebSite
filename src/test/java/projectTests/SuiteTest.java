@@ -7,6 +7,7 @@ import org.junit.runners.Suite;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
         SignInTest.class,
+        HomeScreenTest.class,
 })
 
 public class SuiteTest {
