@@ -1,12 +1,8 @@
 package pageObjects;
 
-import commonMethods.UserActions;
 import org.openqa.selenium.By;
-import singleton.SingletonDriver;
 
-public class HomeScreen extends UserActions {
-
-    protected static SingletonDriver singletonDriver = SingletonDriver.getInstance();
+public class HomeScreen{
 
     public By  priceDropMenu = By.xpath("//span[text() = 'סכום']");
 
@@ -21,8 +17,4 @@ public class HomeScreen extends UserActions {
     public By categoryOption = By.xpath("//li[text() = 'גיפט קארד למסעדות שף']");
 
     public By submitUserChoose = By.cssSelector("a.ui-btn.search.ember-view");
-
-    public HomeScreen(){
-        super(singletonDriver.driver);
-    }
 }
