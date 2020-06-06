@@ -1,13 +1,12 @@
-package projectTests;
-import commonMethods.UserActions;
+package projectTests.homeScreenTest;
+
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import pageObjects.HomeScreen;
-import singleton.SingletonDriver;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class HomeScreenTest extends HomeScreeBaseForTest{
+public class HomeScreenTest extends HomeScreeBaseForTest {
 
     protected HomeScreen homeScreen = new HomeScreen();
 
@@ -44,5 +43,6 @@ public class HomeScreenTest extends HomeScreeBaseForTest{
     @Test
     public void test_7_SubmitUserSearch(){
         userAction.clickElement(homeScreen.submitUserChoose);
+        System.out.println("home screen test_7_SubmitUserSearch()");
     }
 }

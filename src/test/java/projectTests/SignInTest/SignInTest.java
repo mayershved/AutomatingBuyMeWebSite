@@ -1,4 +1,4 @@
-package projectTests;
+package projectTests.signInTest;
 
 import commonMethods.ProjectConfigData;
 import pageObjects.SignInScreen;
@@ -6,7 +6,7 @@ import org.junit.runners.MethodSorters;
 import org.junit.*;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class SignInTest extends SignInBaseForTest{
+public class SignInTest extends SignInBaseForTest {
 
     private static SignInScreen signIn = new SignInScreen();
     private ProjectConfigData configData = new ProjectConfigData();
