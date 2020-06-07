@@ -1,4 +1,4 @@
-package projectTests.homeScreenTest;
+package testsBases;
 
 import commonMethods.UserActions;
 import org.junit.AfterClass;

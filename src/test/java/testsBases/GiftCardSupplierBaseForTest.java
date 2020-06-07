@@ -1,4 +1,4 @@
-package projectTests.giftCardTests;
+package testsBases;
 
 import commonMethods.UserActions;
 import org.junit.BeforeClass;

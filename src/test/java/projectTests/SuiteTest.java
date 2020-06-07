@@ -2,11 +2,6 @@ package projectTests;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
-import projectTests.giftCardTests.GiftCardSupplierTest;
-import projectTests.signInTest.SignInTest;
-import projectTests.giftCardTests.GiftCardsScreenTest;
-import projectTests.homeScreenTest.HomeScreenTest;
-
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
@@ -14,6 +9,7 @@ import projectTests.homeScreenTest.HomeScreenTest;
         HomeScreenTest.class,
         GiftCardsScreenTest.class,
         GiftCardSupplierTest.class,
+        GiftCardReceiverTest.class,
 })
 
 public class SuiteTest {

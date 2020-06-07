@@ -1,9 +1,10 @@
-package projectTests.homeScreenTest;
+package projectTests;
 
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import pageObjects.HomeScreen;
+import testsBases.HomeScreeBaseForTest;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class HomeScreenTest extends HomeScreeBaseForTest {

@@ -1,4 +1,4 @@
-package projectTests.signInTest;
+package testsBases;
 
 import commonMethods.UserActions;
 import org.junit.AfterClass;

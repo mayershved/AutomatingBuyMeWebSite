@@ -10,7 +10,7 @@ public class HomeScreen{
 
     public By areaDropMenu = By.xpath("//span[text() = 'אזור']");
 
-    public By areaOption = By.xpath("//li[text() = 'מרכז']");;
+    public By areaOption = By.xpath("//li[text() = 'מרכז']");
 
     public By categoryDropMenu = By.xpath("//span[text() = 'קטגוריה']");
 

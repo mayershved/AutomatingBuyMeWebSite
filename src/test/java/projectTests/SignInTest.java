@@ -1,9 +1,10 @@
-package projectTests.signInTest;
+package projectTests;
 
 import commonMethods.ProjectConfigData;
 import pageObjects.SignInScreen;
 import org.junit.runners.MethodSorters;
 import org.junit.*;
+import testsBases.SignInBaseForTest;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class SignInTest extends SignInBaseForTest {
