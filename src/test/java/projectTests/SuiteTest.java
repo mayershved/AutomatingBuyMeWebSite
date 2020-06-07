@@ -10,6 +10,7 @@ import org.junit.runners.Suite;
         GiftCardsScreenTest.class,
         GiftCardSupplierTest.class,
         GiftCardReceiverTest.class,
+        GiftCardReceiverConfirmTest.class,
 })
 
 public class SuiteTest {

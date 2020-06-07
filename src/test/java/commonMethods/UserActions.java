@@ -19,6 +19,10 @@ public class UserActions {
         driver.findElement(element).sendKeys(userInput);
     }
 
+    public void clearFromText(By element){
+        driver.findElement(element).clear();
+    }
+
     public void submit(By element){
         driver.findElement(element).submit();
     }

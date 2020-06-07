@@ -3,14 +3,13 @@ package projectTests;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObjects.GiftCardReceiverScreen;
-import testsBases.GiftCardReceiverBaseForTest;
+import testsBases.CommonTestBase;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class GiftCardReceiverTest extends GiftCardReceiverBaseForTest {
+public class GiftCardReceiverTest extends CommonTestBase {
 
-    protected GiftCardReceiverScreen  giftReceiver= new GiftCardReceiverScreen();
+    private GiftCardReceiverScreen  giftReceiver= new GiftCardReceiverScreen();
 
     @Test
     public void test_1_ChooseReceiver(){
@@ -19,14 +18,14 @@ public class GiftCardReceiverTest extends GiftCardReceiverBaseForTest {
 
     @Test
     public void test_2_inputReceiverName(){
-        userAction.userInput(giftReceiver.receiverNameElement,giftReceiver.receiverName);
+//        userAction.userInput(giftReceiver.receiverNameElement,giftReceiver.receiverName);
     }
-
+// not in use
 //    @Test
 //    public void test_3_GiftCardReasonDropMenu(){
 //        userAction.clickElement(giftReceiver.giftCardReasonDropMenu);
 //    }
-
+//not in use
     @Test
     public void test_3_ChooseGiftCardReasonOption() {
 //        userAction.clickElement(giftReceiver.giftCardReasonOption);
@@ -34,37 +33,39 @@ public class GiftCardReceiverTest extends GiftCardReceiverBaseForTest {
 
     @Test
     public void test_4_BlessingTextForGiftCard(){
+        //userAction.clearFromText(giftReceiver.blessingTextElement);
         userAction.userInput(giftReceiver.blessingTextElement,giftReceiver.blessingText);
     }
 
+//    @Test
+//    public void test_5_LoadImage() {
+//        userAction.clickElement(giftReceiver.loadImage);
+//        System.out.println("file choosen");
+//    }
+//
     @Test
-    public void test_5_LoadImage() {
-        userAction.clickElement(giftReceiver.loadImage);
-        System.out.println("file choosen");
-    }
-
-    @Test
-    public void test_6_GiftCardPaymentTime(){
+    public void test_5_GiftCardPaymentTime(){
         userAction.clickElement(giftReceiver.GiftPaymentTime);
     }
 
     @Test
-    public void test_7_SendGiftCardByEmail(){
+    public void test_6_SendGiftCardByEmail(){
         userAction.clickElement(giftReceiver.sendGiftCardByEmail);
     }
 
     @Test
-    public void test_8_EmailForGiftCard(){
+    public void test_7_EmailForGiftCard(){
+        userAction.clearFromText(giftReceiver.emailForGiftCard);
         userAction.userInput(giftReceiver.emailForGiftCard,giftReceiver.emailForGift);
     }
 
     @Test
-    public void test_9_ConfirmGiftEmail(){
+    public void test_8_ConfirmGiftEmail(){
         userAction.clickElement(giftReceiver.confirmGiftEmail);
     }
 
-    @Test
-    public void test_10_SubmitGiftCardReceiverDetails(){
-        userAction.clickElement(giftReceiver.submitGiftCardReceiverDetails);
-    }
+//    @Test
+//    public void test_19_SubmitGiftCardReceiverDetails() throws InterruptedException {
+//        userAction.clickElement(giftReceiver.submitGiftCardReceiverDetails);
+//    }
 }

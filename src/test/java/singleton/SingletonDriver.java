@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  *
  */
@@ -21,7 +23,7 @@ public class SingletonDriver {
     }
 
     // static method to create instance of Singleton class
-    public static SingletonDriver getInstance()
+    public static synchronized SingletonDriver getInstance()
     {
         if (instance == null)
             instance = new SingletonDriver();
@@ -37,6 +39,8 @@ public class SingletonDriver {
     public void setProjectDriver(){
         if(configData.getBrowserType().equals("Chrome")){
             setChromeDriver();
+            driver.manage().window().maximize();
+            driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         }else if(configData.getBrowserType().equals("firefox")){
             setFirefoxDriver();
         }

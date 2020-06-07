@@ -19,7 +19,7 @@ public class GiftCardReceiverScreen {
 
     public By blessingTextElement = By.xpath("//label[@class = 'ember-view ui-field ui-textarea']/textarea");
 
-    public By loadImage = By.xpath("//div[@class = 'media-fields']/label/input");
+   // public By loadImage = By.xpath("//div[@class = 'media-fields']/label/input");
 
     public By GiftPaymentTime = By.cssSelector("label.send-now");
 
@@ -27,7 +27,7 @@ public class GiftCardReceiverScreen {
 
     public  By emailForGiftCard = By.xpath("//input[@placeholder = 'כתובת המייל של מקבל/ת המתנה']");
 
-    public By confirmGiftEmail = By.cssSelector("button.btn.btn-theme.btn-save");
+    public By confirmGiftEmail = By.xpath("//button[text() = 'שמירה']");
 
-    public By submitGiftCardReceiverDetails = By.cssSelector("button.ui-btn.orange.large");
+    public By submitGiftCardReceiverDetails = By.xpath("//button[text() = 'תשלום']");
 }

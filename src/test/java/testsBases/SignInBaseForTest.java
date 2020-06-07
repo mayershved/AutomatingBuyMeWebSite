@@ -1,6 +1,7 @@
 package testsBases;
 
 import commonMethods.UserActions;
+import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import singleton.SingletonDriver;
@@ -14,6 +15,11 @@ public class SignInBaseForTest {
     public static void testBaseForSignIScreen(){
         singletonDriver.setProjectDriver();
         userAction = new UserActions(singletonDriver.driver);
+    }
+
+    @After
+    public void afterEach() throws InterruptedException {
+        Thread.sleep(300);
     }
 
     @AfterClass

@@ -16,5 +16,5 @@ public class HomeScreen{
 
     public By categoryOption = By.xpath("//li[text() = 'גיפט קארד למסעדות שף']");
 
-    public By submitUserChoose = By.cssSelector("a.ui-btn.search.ember-view");
+    public By submitUserChoose = By.xpath("//a[text() = 'תמצאו לי מתנה']");
 }

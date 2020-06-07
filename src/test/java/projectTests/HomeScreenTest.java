@@ -4,12 +4,12 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import pageObjects.HomeScreen;
-import testsBases.HomeScreeBaseForTest;
+import testsBases.CommonTestBase;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class HomeScreenTest extends HomeScreeBaseForTest {
+public class HomeScreenTest extends CommonTestBase {
 
-    protected HomeScreen homeScreen = new HomeScreen();
+    private HomeScreen homeScreen = new HomeScreen();
 
     @Test
     public void test_1_PriceDropMenu(){
@@ -44,6 +44,5 @@ public class HomeScreenTest extends HomeScreeBaseForTest {
     @Test
     public void test_7_SubmitUserSearch(){
         userAction.clickElement(homeScreen.submitUserChoose);
-        System.out.println("home screen test_7_SubmitUserSearch()");
     }
 }
