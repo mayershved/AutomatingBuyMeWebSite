@@ -1,5 +1,8 @@
 package projectTests;
 
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
+import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
@@ -10,10 +13,31 @@ import testsBases.CommonTestBase;
 public class HomeScreenTest extends CommonTestBase {
 
     private HomeScreen homeScreen = new HomeScreen();
+    protected static ExtentTest testReportsForHomeScreen;
+
+    @Test
+    public void test_0_setExtendTest(){
+
+        testReportsForHomeScreen = singletonReport.extentReport
+                .createTest("Test reports for Home Screen", "test reports for Home Screen");
+    }
 
     @Test
     public void test_1_PriceDropMenu(){
-        userAction.clickElement(homeScreen.priceDropMenu);
+        try{
+            userAction.clickElement(homeScreen.priceDropMenu);
+            isClicked = true;
+        }catch (Exception e){
+            e.printStackTrace();
+            testReportsForHomeScreen.log(Status.FATAL, "priced drop menu is not clicked");
+            testReportsForHomeScreen.log(Status.INFO, e.getMessage());
+            isClicked = false;
+        }
+        finally {
+            if (isClicked) {
+                testReportsForHomeScreen.log(Status.PASS, "priced drop menu is clicked");
+            }
+        }
     }
 
     @Test

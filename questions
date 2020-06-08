@@ -1,2 +1,4 @@
 1. how to use explicit waits with singleton anf suite;
 2. do not see Thread sleep;
+3. check if chrome driver was started successfully
+4 test is not return null

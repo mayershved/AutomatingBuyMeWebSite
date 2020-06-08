@@ -1,15 +1,15 @@
 package projectTests;
 
 import commonMethods.ProjectConfigData;
-import pageObjects.SignInScreen;
+import pageObjects.SignIn;
 import org.junit.runners.MethodSorters;
 import org.junit.*;
-import testsBases.SignInBaseForTest;
+import testsBases.SignIn_SignUp_TestBase;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class SignInTest extends SignInBaseForTest {
+public class SignInTest extends SignIn_SignUp_TestBase {
 
-    private static SignInScreen signIn = new SignInScreen();
+    private static SignIn signIn = new SignIn();
     private ProjectConfigData configData = new ProjectConfigData();
 
     @Test
@@ -19,18 +19,8 @@ public class SignInTest extends SignInBaseForTest {
 
     @Test
     public void test_2_ClickSignIn(){
-        userAction.clickElement(signIn.signInButton);
+        userAction.clickElement(signIn.signUpSignInButton);
     }
-
-//    @Test
-//    public void test_3_StartSignIn() {
-//        userAction.clickElement(signIn.startSignIn);
-//    }
-
-//    @Test
-//    public void test_4_EnterFirstName() {
-//        userAction.userInput(signIn.firstNameElement, configData.getUserFirstName());
-//    }
 
     @Test
     public void test_5_EnterEmail() {
@@ -39,21 +29,11 @@ public class SignInTest extends SignInBaseForTest {
 
     @Test
     public void test_6_EnterPassword() {
-        userAction.userInput(signIn.sPasswordElement, configData.getUserPassword());
+        userAction.userInput(signIn.passwordElement, configData.getUserPassword());
     }
-
-//    @Test
-//    public void test_6_EnterPassword() {
-//        userAction.userInput(signIn.passwordElement, configData.getUserPassword());
-//    }
-
-//    @Test
-//    public void test_7_ConfirmPassword() {
-//        userAction.userInput(signIn.confirmPasswordElement, configData.getUserPassword());
-//    }
 
     @Test
     public void test_8_SubmitUser() {
-        userAction.clickElement(signIn.submitButton);
+        userAction.clickElement(signIn.signInUserButton);
     }
 }

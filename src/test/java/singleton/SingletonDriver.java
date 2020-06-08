@@ -25,9 +25,9 @@ public class SingletonDriver {
     // static method to create instance of Singleton class
     public static synchronized SingletonDriver getInstance()
     {
-        if (instance == null)
+        if (instance == null) {
             instance = new SingletonDriver();
-
+        }
         return instance;
     }
 
