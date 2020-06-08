@@ -115,14 +115,14 @@ public class SignUpTest extends SignIn_SignUp_TestBase {
         }
     }
 
-
     @Test
     public void test_7_ConfirmPassword() {
         try{
             userAction.userInput(signUp.confirmPasswordElement, configData.getUserPassword());
             isClicked = true;
         }catch (Exception e){
-
+            testReportForSignUp.log(Status.ERROR, "confirm password input failed");
+            testReportForSignUp.log(Status.INFO, e.getMessage());;
         }finally {
             if (isClicked)
                 testReportForSignUp.log(Status.PASS, "user confirm password input is passed");

@@ -87,7 +87,7 @@ public class SignInTest extends SignIn_SignUp_TestBase {
     }
 
     @Test
-    public void test_5_SignUpUser() throws IOException, InterruptedException {
+    public void test_5_SignUpUser(){
         try {
             userAction.clickElement(signIn.signInUserButton);
             isClicked = true;
