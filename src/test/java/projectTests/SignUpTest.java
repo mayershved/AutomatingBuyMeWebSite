@@ -18,8 +18,8 @@ public class SignUpTest extends SignIn_SignUp_TestBase {
     private ScreenShot screenShot = new ScreenShot(singletonDriver.driver);
     private ProjectConfigData configData = new ProjectConfigData();
     private static SignUp signUp = new SignUp();
+    private static ExtentTest testReportForSignUp;
 
-    protected static ExtentTest testReportForSignUp;
     private String url = "https://buyme.co.il/";
 
     @Test

@@ -62,6 +62,5 @@ public class SignIn_SignUp_TestBase {
     public static void tearDown_SignIn_SignUp_Test() throws InterruptedException {
         singletonReport.extentReport.flush();
         Thread.sleep(1000);
-        //singletonDriver.driver.quit();
     }
 }

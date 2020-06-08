@@ -4,7 +4,6 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import commonMethods.ProjectConfigData;
 import commonMethods.ScreenShot;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObjects.SignIn;
 import org.junit.runners.MethodSorters;
 import org.junit.*;
@@ -18,8 +17,7 @@ public class SignInTest extends SignIn_SignUp_TestBase {
     private ScreenShot screenShot = new ScreenShot(singletonDriver.driver);
     private ProjectConfigData configData = new ProjectConfigData();
     private static SignIn signIn = new SignIn();
-    WebDriverWait wait = new WebDriverWait(singletonDriver.driver, 10);
-    protected static ExtentTest testReportForSignIn;
+    private static ExtentTest testReportForSignIn;
 
     private String url = "https://buyme.co.il/";
 
@@ -89,7 +87,7 @@ public class SignInTest extends SignIn_SignUp_TestBase {
     }
 
     @Test
-    public void test_8_SignUpNewUser() throws IOException, InterruptedException {
+    public void test_5_SignUpUser() throws IOException, InterruptedException {
         try {
             userAction.clickElement(signIn.signInUserButton);
             isClicked = true;

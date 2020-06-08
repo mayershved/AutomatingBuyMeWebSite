@@ -9,7 +9,7 @@ import pageObjects.SignUp;
 @Suite.SuiteClasses({
         SignInTest.class,
         HomeScreenTest.class,
-//        GiftCardsScreenTest.class,
+        GiftCardsScreenTest.class,
 //        GiftCardSupplierTest.class,
 //        GiftCardReceiverTest.class,
 //        GiftCardReceiverConfirmTest.class,

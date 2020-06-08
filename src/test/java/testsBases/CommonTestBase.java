@@ -35,6 +35,5 @@ public class CommonTestBase {
     public static void tearDownHomeScreenTest() throws InterruptedException {
     Thread.sleep(300);
     singletonReport.extentReport.flush();
-        singletonDriver.driver.quit();
     }
 }

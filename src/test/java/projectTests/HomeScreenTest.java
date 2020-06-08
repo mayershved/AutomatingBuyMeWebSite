@@ -15,8 +15,8 @@ import java.io.IOException;
 public class HomeScreenTest extends CommonTestBase {
 
     private ScreenShot screenShot = new ScreenShot(singletonDriver.driver);
-    protected static ExtentTest testReportsForHomeScreen;
     private HomeScreen homeScreen = new HomeScreen();
+    private static ExtentTest testReportsForHomeScreen;
 
     @Test
     public void test_0_setExtendTest(){
