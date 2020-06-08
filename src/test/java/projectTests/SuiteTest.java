@@ -10,7 +10,7 @@ import pageObjects.SignUp;
         SignInTest.class,
         HomeScreenTest.class,
         GiftCardsScreenTest.class,
-//        GiftCardSupplierTest.class,
+        GiftCardSupplierTest.class,
 //        GiftCardReceiverTest.class,
 //        GiftCardReceiverConfirmTest.class,
 })

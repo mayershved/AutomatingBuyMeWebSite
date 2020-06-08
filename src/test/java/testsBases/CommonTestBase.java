@@ -33,7 +33,7 @@ public class CommonTestBase {
 
     @AfterClass
     public static void tearDownHomeScreenTest() throws InterruptedException {
-    Thread.sleep(300);
-    singletonReport.extentReport.flush();
+        Thread.sleep(300);
+        singletonReport.extentReport.flush();
     }
 }
