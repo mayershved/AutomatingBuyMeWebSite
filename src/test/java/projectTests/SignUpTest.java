@@ -20,11 +20,10 @@ public class SignUpTest extends SignIn_SignUp_TestBase {
     private static SignUp signUp = new SignUp();
 
     protected static ExtentTest testReportForSignUp;
-
     private String url = "https://buyme.co.il/";
 
     @Test
-    public void test_0_SetUpExtenttest(){
+    public void test_0_SetUpExtentTest(){
         testReportForSignUp = singletonReport.extentReport
                 .createTest("SingUp new user", "open BuyMeLandingPage, singUp new user ");
     }

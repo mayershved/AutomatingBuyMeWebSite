@@ -55,13 +55,13 @@ public class SignIn_SignUp_TestBase {
     @After
     public void afterEach() throws InterruptedException {
         isClicked = false;
-        Thread.sleep(300);
+        Thread.sleep(100);
     }
 
     @AfterClass
     public static void tearDown_SignIn_SignUp_Test() throws InterruptedException {
         singletonReport.extentReport.flush();
-        Thread.sleep(1500);
+        Thread.sleep(1000);
         singletonDriver.driver.quit();
     }
 }
