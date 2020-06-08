@@ -141,7 +141,6 @@ public class SignUpTest extends SignIn_SignUp_TestBase {
         }finally {
             if(isClicked)
                 testReportForSignUp.log(Status.PASS, "new user was signedUp succesfully");
-                screenShot.setScreenShotToReportDetails("BuyMe landing page", testReportForSignUp);
         }
     }
 }

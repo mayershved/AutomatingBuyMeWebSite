@@ -73,7 +73,7 @@ public class SignInTest extends SignIn_SignUp_TestBase {
     }
 
     @Test
-    public void test_4_EnterPassword() {
+    public void test_4_EnterPassword() throws IOException {
 
         try {
             userAction.userInput(signIn.passwordElement, configData.getUserPassword());
@@ -84,12 +84,12 @@ public class SignInTest extends SignIn_SignUp_TestBase {
         } finally {
             if (isClicked)
                 testReportForSignIn.log(Status.PASS, "user password input is passed");
+                screenShot.setScreenShotToReportDetails("user info", testReportForSignIn);
         }
     }
 
     @Test
     public void test_8_SignUpNewUser() throws IOException, InterruptedException {
-        screenShot.setScreenShotToReportDetails("user info", testReportForSignIn);
         try {
             userAction.clickElement(signIn.signInUserButton);
             isClicked = true;
@@ -99,8 +99,6 @@ public class SignInTest extends SignIn_SignUp_TestBase {
         } finally {
             if (isClicked)
                 testReportForSignIn.log(Status.PASS, "user was signedIn succesfully");
-                Thread.sleep(1500);
-                screenShot.setScreenShotToReportDetails("BuyMe landing page", testReportForSignIn);
         }
     }
 }

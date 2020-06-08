@@ -1,6 +1,5 @@
 package testsBases;
 
-import com.aventstack.extentreports.ExtentTest;
 import commonMethods.UserActions;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -36,5 +35,6 @@ public class CommonTestBase {
     public static void tearDownHomeScreenTest() throws InterruptedException {
     Thread.sleep(300);
     singletonReport.extentReport.flush();
+        singletonDriver.driver.quit();
     }
 }

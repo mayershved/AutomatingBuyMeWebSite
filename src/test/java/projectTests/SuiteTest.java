@@ -8,7 +8,7 @@ import pageObjects.SignUp;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
         SignInTest.class,
-//        HomeScreenTest.class,
+        HomeScreenTest.class,
 //        GiftCardsScreenTest.class,
 //        GiftCardSupplierTest.class,
 //        GiftCardReceiverTest.class,
