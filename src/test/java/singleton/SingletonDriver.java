@@ -8,21 +8,17 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import java.util.concurrent.TimeUnit;
 
 /**
- *
+ *SingletonDriver class wrapes driver instance of WebDrive class that is used globaly in the project
  */
 public class SingletonDriver {
 
-    // static variable single_instance of type Singleton
+    // static variable instance of type SingletonDriver
     private static SingletonDriver instance = null;
 
-    // variable of type String
+    // instance of WebDriver class
     public WebDriver driver;
 
-    // private constructor restricted to this class itself
-    private SingletonDriver() {
-    }
-
-    // static method to create instance of Singleton class
+    // static method to create instance of SingletonDriver class
     public static synchronized SingletonDriver getInstance()
     {
         if (instance == null) {

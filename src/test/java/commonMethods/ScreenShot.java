@@ -14,7 +14,9 @@ public class ScreenShot {
 
     private static ProjectConfigData configData = new ProjectConfigData();
     private static final String pathToSaveScreenShot = configData.getScreenShotPath();
+
     private static WebDriver driver;
+
     /***
      *
      * @param pahtToScreenShot
@@ -35,7 +37,7 @@ public class ScreenShot {
     /**
      * this method take screenshot and place to test report specified by method parameter
      * @param details screenshot case description
-     * @param testReport specifies ExtentTest report place for screenshort
+     * @param testReport specifies ExtentTest report place for screenshot
      * @throws IOException
      */
     public void setScreenShotToReportDetails(String details, ExtentTest testReport) throws IOException {
