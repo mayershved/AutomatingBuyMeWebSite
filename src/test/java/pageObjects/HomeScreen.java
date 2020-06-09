@@ -17,4 +17,5 @@ public class HomeScreen{
     public By categoryOption = By.xpath("//li[text() = 'גיפט קארד למסעדות שף']");
 
     public By submitUserChoose = By.xpath("//a[text() = 'תמצאו לי מתנה']");
+
 }

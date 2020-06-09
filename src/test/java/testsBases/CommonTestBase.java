@@ -1,5 +1,6 @@
 package testsBases;
 
+import commonMethods.Extras;
 import commonMethods.UserActions;
 import org.junit.After;
 import org.junit.AfterClass;

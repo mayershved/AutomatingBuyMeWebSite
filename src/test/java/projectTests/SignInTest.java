@@ -15,21 +15,27 @@ import java.io.IOException;
 public class SignInTest extends SignIn_SignUp_TestBase {
 
     private ScreenShot screenShot = new ScreenShot(singletonDriver.driver);
+    private static Extras extras = new Extras(singletonDriver.driver, singletonReport.extentReport);
     private ProjectConfigData configData = new ProjectConfigData();
     private static SignIn signIn = new SignIn();
     private static ExtentTest testReportForSignIn;
-    private static Extras extras = new Extras(singletonDriver.driver);
 
     private String url = "https://buyme.co.il/";
 
     @Test
-    public void test_0_SetUpExtentTest() {
+    public void test_01_SetUpSignInExtentTest() {
         testReportForSignIn = singletonReport.extentReport
                 .createTest("SingIn existing user", "open BuyMeLandingPage, signIn existing user ");
     }
 
     @Test
-    public void test_1_OpenBuyMeLandingPage() throws IOException {
+    public void test_02_ExtrasReports(){
+        extras.setExtrasTestReports("Extras for SignIn Screen", "Extras SignIn Screen assignment");
+    extras.testReportsForExtras.log(Status.INFO,"kwebfewkfbekwbfkjewbfkjeqwbfkjeqb");
+    }
+
+    @Test
+    public void test_03_OpenBuyMeLandingPage() throws IOException {
 
         userAction.navigateToWebPage(configData.getBuyMeLandingPageUrl());
 
@@ -43,7 +49,7 @@ public class SignInTest extends SignIn_SignUp_TestBase {
     }
 
     @Test
-    public void test_2_ClickSignInSignUp() throws IOException {
+    public void test_04_ClickSignInSignUp() throws IOException {
         try {
             userAction.clickElement(signIn.signUpSignInButton);
             isClicked = true;
@@ -58,26 +64,26 @@ public class SignInTest extends SignIn_SignUp_TestBase {
     }
 
     @Test
-    public void test_3_SignInUser() throws IOException {
+    public void test_05_SignInUser() throws IOException {
         SignInUser();
-        testReportForSignIn.log(Status.FAIL, "missing user email and password");
-        screenShot.setScreenShotToReportDetails("error messages",testReportForSignIn);
+        extras.testReportsForExtras.log(Status.FAIL, "missing user email and password");
+        screenShot.setScreenShotToReportDetails("error messages",extras.testReportsForExtras);
     }
 
     @Test
-    public void test_4_assertEmailErrorMessage() {
+    public void test_06_assertEmailErrorMessage() {
         extras.setListOfElements(extras.emptyEmailAndPasswordWarning);
         extras.asserExtrasMethod(extras.ERRORMESSAGE,extras.webElements.get(0).getText());
     }
 
     @Test
-    public void test_5_assertPasswordErrorMessage() {
+    public void test_07_assertPasswordErrorMessage() {
         extras.setListOfElements(extras.emptyEmailAndPasswordWarning);
         extras.asserExtrasMethod(extras.ERRORMESSAGE, extras.webElements.get(1).getText());
     }
 
     @Test
-    public void test_6_EnterEmail() {
+    public void test_08_EnterEmail() {
         try {
             userAction.userInput(signIn.emailAdressElement, configData.getUserEmail());
             isClicked = true;
@@ -91,7 +97,7 @@ public class SignInTest extends SignIn_SignUp_TestBase {
     }
 
     @Test
-    public void test_7_EnterPassword() throws IOException {
+    public void test_09_EnterPassword() throws IOException {
 
         try {
             userAction.userInput(signIn.passwordElement, configData.getUserPassword());
@@ -107,7 +113,7 @@ public class SignInTest extends SignIn_SignUp_TestBase {
     }
 
     @Test
-    public void test_8_signInUser(){
+    public void test_10_signInUser(){
         SignInUser();
     }
 

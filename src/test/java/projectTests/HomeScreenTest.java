@@ -2,10 +2,12 @@ package projectTests;
 
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
+import commonMethods.Extras;
 import commonMethods.ScreenShot;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
+import org.openqa.selenium.JavascriptExecutor;
 import pageObjects.HomeScreen;
 import testsBases.CommonTestBase;
 
@@ -17,115 +19,154 @@ public class HomeScreenTest extends CommonTestBase {
     private ScreenShot screenShot = new ScreenShot(singletonDriver.driver);
     private HomeScreen homeScreen = new HomeScreen();
     private static ExtentTest testReportsForHomeScreen;
+    private Extras extras = new Extras(singletonDriver.driver, singletonReport.extentReport);
 
     @Test
-    public void test_0_setExtendTest(){
+    public void test_01_setExtendTest(){
         testReportsForHomeScreen = singletonReport.extentReport
                 .createTest("Home Screen Reports", "test reports for Home Screen");
     }
 
     @Test
-    public void test_1_PriceDropMenu() throws IOException {
+    public void test_02_ExtrasReports(){
+        extras.setExtrasTestReports("Extras for SignIn Screen", "Extras SignIn Screen assignment");
+        extras.testReportsForExtras.log(Status.INFO,"kwebfewkfbekwbfkjewbfkjeqwbfkjeqb");
 
-        screenShot.setScreenShotToReportDetails("BuyMe landing page", testReportsForHomeScreen);
+    }
 
-        try{
-            userAction.clickElement(homeScreen.priceDropMenu);
-            isClicked = true;
+    @Test
+    public void test_03_ScrollDownExtras() throws InterruptedException, IOException {
+        Thread.sleep(1000);
+        try {
+            extras.scrollPage(0, 2000);
         }catch (Exception e){
-            testReportsForHomeScreen.log(Status.ERROR, "price drop menu is not clicked");
-            testReportsForHomeScreen.log(Status.INFO, e.getMessage());
+            extras.testReportsForExtras.log(Status.ERROR, "page was not scrolled down");
+            extras.testReportsForExtras.log(Status.INFO, e.getMessage());
         }finally {
             if (isClicked)
-                testReportsForHomeScreen.log(Status.PASS, "priced drop menu is clicked");
-                screenShot.setScreenShotToReportDetails("price drop menu", testReportsForHomeScreen);
+                extras.testReportsForExtras.log(Status.INFO,"kwebfewkfbekwbfkjewbfkjeqwbfkjeqb");
+
+            // screenShot.setScreenShotToReportDetails("scroll to bottom of the Home Screen", extras.testReportsForExtras);
         }
     }
 
     @Test
-    public void test_2_ChoosePrice(){
-        try{
-            userAction.clickElement(homeScreen.priceOption);
-            isClicked = true;
-        }catch(Exception e){
-            testReportsForHomeScreen.log(Status.ERROR, "price option from drop menu is not clicked");
-            testReportsForHomeScreen.log(Status.INFO, e.getMessage());
-        }finally {
-            if(isClicked)
-                testReportsForHomeScreen.log(Status.PASS, "priced option from drop menu is clicked");
-        }
-    }
+    public void test_04_ScrolUpExtras() throws InterruptedException, IOException {
+        try {
+            extras.scrollPage(0, -2000);
+        } catch (Exception e) {
+            extras.testReportsForExtras.log(Status.ERROR, "page was not scrolled up");
+            extras.testReportsForExtras.log(Status.INFO, e.getMessage());
+        } finally {
+            if (isClicked)
+                extras.testReportsForExtras.log(Status.INFO,"kwebfewkfbekwbfkjewbfkjeqwbfkjeqb");
 
-    @Test
-    public void test_3_AreaDropMenu() throws IOException {
-        try{
-            userAction.clickElement(homeScreen.areaDropMenu);
-            isClicked = true;
-        }catch(Exception e){
-            testReportsForHomeScreen.log(Status.ERROR, "area drop menu is not clicked");
-            testReportsForHomeScreen.log(Status.INFO, e.getMessage());
-        }finally {
-            if(isClicked)
-                testReportsForHomeScreen.log(Status.PASS, "area drop menu is clicked");
-                screenShot.setScreenShotToReportDetails("area drop menu", testReportsForHomeScreen);
+            //screenShot.setScreenShotToReportDetails("scroll to bottom of the Home Screen", extras.testReportsForExtras);
         }
     }
-
-    @Test
-    public void test_4_ChoseArea(){
-        try{
-            userAction.clickElement(homeScreen.areaOption);
-            isClicked = true;
-        }catch (Exception e){
-            testReportsForHomeScreen.log(Status.ERROR, "area option from drop menu is not clicked");
-            testReportsForHomeScreen.log(Status.INFO, e.getMessage());
-        }finally {
-            if(isClicked)
-                testReportsForHomeScreen.log(Status.PASS, "area option from drop menu is clicked");
-        }
-    }
-
-    @Test
-    public void test_5_CategoryDropMenu() throws IOException {
-        try{
-            userAction.clickElement(homeScreen.categoryDropMenu);
-            isClicked = true;
-        }catch (Exception e){
-            testReportsForHomeScreen.log(Status.ERROR, "category drop menu is not clicked");
-            testReportsForHomeScreen.log(Status.INFO, e.getMessage());
-        }finally {
-            if(isClicked)
-                testReportsForHomeScreen.log(Status.PASS, "category drop menu is clicked");
-                screenShot.setScreenShotToReportDetails("category drop menu", testReportsForHomeScreen);
-        }
-    }
-
-    @Test
-    public void test_6_ChooseCategory() {
-        try{
-            userAction.clickElement(homeScreen.categoryOption);
-            isClicked = true;
-        }catch(Exception e){
-            testReportsForHomeScreen.log(Status.ERROR, "category option from drop menu is not clicked");
-            testReportsForHomeScreen.log(Status.INFO, e.getMessage());
-        }finally {
-            if(isClicked)
-                testReportsForHomeScreen.log(Status.PASS, "category option from drop menu is clicked");
-        }
-    }
-
-    @Test
-    public void test_7_SubmitUserSearch() throws IOException, InterruptedException {
-        screenShot.setScreenShotToReportDetails("gift card search info", testReportsForHomeScreen);
-        try{
-            userAction.clickElement(homeScreen.submitUserChoose);
-            isClicked = true;
-        }catch (Exception e){
-            testReportsForHomeScreen.log(Status.FAIL, "not succeeded to click button to submit gift card search info");
-            testReportsForHomeScreen.log(Status.INFO, e.getMessage());
-        }finally {
-            if(isClicked)
-                testReportsForHomeScreen.log(Status.PASS, "gift card search info submitted successfully");
-        }
-    }
+//
+//    @Test
+//    public void test_05_PriceDropMenu() throws IOException {
+//
+//        screenShot.setScreenShotToReportDetails("BuyMe landing page", testReportsForHomeScreen);
+//
+//        try{
+//            userAction.clickElement(homeScreen.priceDropMenu);
+//            isClicked = true;
+//        }catch (Exception e){
+//            testReportsForHomeScreen.log(Status.ERROR, "price drop menu is not clicked");
+//            testReportsForHomeScreen.log(Status.INFO, e.getMessage());
+//        }finally {
+//            if (isClicked)
+//                testReportsForHomeScreen.log(Status.PASS, "priced drop menu is clicked");
+//                screenShot.setScreenShotToReportDetails("price drop menu", testReportsForHomeScreen);
+//        }
+//    }
+//
+//    @Test
+//    public void test_06_ChoosePrice(){
+//        try{
+//            userAction.clickElement(homeScreen.priceOption);
+//            isClicked = true;
+//        }catch(Exception e){
+//            testReportsForHomeScreen.log(Status.ERROR, "price option from drop menu is not clicked");
+//            testReportsForHomeScreen.log(Status.INFO, e.getMessage());
+//        }finally {
+//            if(isClicked)
+//                testReportsForHomeScreen.log(Status.PASS, "priced option from drop menu is clicked");
+//        }
+//    }
+//
+//    @Test
+//    public void test_07_AreaDropMenu() throws IOException {
+//        try{
+//            userAction.clickElement(homeScreen.areaDropMenu);
+//            isClicked = true;
+//        }catch(Exception e){
+//            testReportsForHomeScreen.log(Status.ERROR, "area drop menu is not clicked");
+//            testReportsForHomeScreen.log(Status.INFO, e.getMessage());
+//        }finally {
+//            if(isClicked)
+//                testReportsForHomeScreen.log(Status.PASS, "area drop menu is clicked");
+//                screenShot.setScreenShotToReportDetails("area drop menu", testReportsForHomeScreen);
+//        }
+//    }
+//
+//    @Test
+//    public void test_08_ChoseArea(){
+//        try{
+//            userAction.clickElement(homeScreen.areaOption);
+//            isClicked = true;
+//        }catch (Exception e){
+//            testReportsForHomeScreen.log(Status.ERROR, "area option from drop menu is not clicked");
+//            testReportsForHomeScreen.log(Status.INFO, e.getMessage());
+//        }finally {
+//            if(isClicked)
+//                testReportsForHomeScreen.log(Status.PASS, "area option from drop menu is clicked");
+//        }
+//    }
+//
+//    @Test
+//    public void test_09_CategoryDropMenu() throws IOException {
+//        try{
+//            userAction.clickElement(homeScreen.categoryDropMenu);
+//            isClicked = true;
+//        }catch (Exception e){
+//            testReportsForHomeScreen.log(Status.ERROR, "category drop menu is not clicked");
+//            testReportsForHomeScreen.log(Status.INFO, e.getMessage());
+//        }finally {
+//            if(isClicked)
+//                testReportsForHomeScreen.log(Status.PASS, "category drop menu is clicked");
+//                screenShot.setScreenShotToReportDetails("category drop menu", testReportsForHomeScreen);
+//        }
+//    }
+//
+//    @Test
+//    public void test_10_ChooseCategory() {
+//        try{
+//            userAction.clickElement(homeScreen.categoryOption);
+//            isClicked = true;
+//        }catch(Exception e){
+//            testReportsForHomeScreen.log(Status.ERROR, "category option from drop menu is not clicked");
+//            testReportsForHomeScreen.log(Status.INFO, e.getMessage());
+//        }finally {
+//            if(isClicked)
+//                testReportsForHomeScreen.log(Status.PASS, "category option from drop menu is clicked");
+//        }
+//    }
+//
+//    @Test
+//    public void test_11_SubmitUserSearch() throws IOException, InterruptedException {
+//        screenShot.setScreenShotToReportDetails("gift card search info", testReportsForHomeScreen);
+//        try{
+//            userAction.clickElement(homeScreen.submitUserChoose);
+//            isClicked = true;
+//        }catch (Exception e){
+//            testReportsForHomeScreen.log(Status.FAIL, "not succeeded to click button to submit gift card search info");
+//            testReportsForHomeScreen.log(Status.INFO, e.getMessage());
+//        }finally {
+//            if(isClicked)
+//                testReportsForHomeScreen.log(Status.PASS, "gift card search info submitted successfully");
+//        }
+//    }
 }

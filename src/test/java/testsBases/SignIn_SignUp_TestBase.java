@@ -2,6 +2,7 @@ package testsBases;
 
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
+import commonMethods.Extras;
 import commonMethods.UserActions;
 import org.junit.After;
 import org.junit.AfterClass;

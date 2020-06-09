@@ -1,16 +1,18 @@
 package projectTests;
 
+import commonMethods.Extras;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
         SignInTest.class,
-//        HomeScreenTest.class,
-//        GiftCardsScreenTest.class,
+        HomeScreenTest.class,
+        //        GiftCardsScreenTest.class,
 //        GiftCardSupplierTest.class,
 //        GiftCardReceiverTest.class,
 //        GiftCardReceiverConfirmTest.class,
+
 })
 
 public class SuiteTest {
