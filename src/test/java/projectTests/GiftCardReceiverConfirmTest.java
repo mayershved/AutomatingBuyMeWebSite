@@ -1,6 +1,5 @@
 package projectTests;
 
-import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import commonMethods.ScreenShot;
 import org.junit.FixMethodOrder;
@@ -14,15 +13,9 @@ import java.io.IOException;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class GiftCardReceiverConfirmTest extends TestBaseForLastTestClass {
 
+    private static GiftCardReceiverTest receiverScreen = new GiftCardReceiverTest();
     private GiftCardReceiverScreen confirmReceiver = new GiftCardReceiverScreen();
     private ScreenShot screenShot = new ScreenShot(singletonDriver.driver);
-    private static ExtentTest testReportForConfirmReceiver;
-
-    @Test
-    public void test_0_SetUpExtentTest() {
-        testReportForConfirmReceiver = singletonReport.extentReport
-                .createTest("Test report for gift card submition", "submit gift card");
-    }
 
     @Test
     public void test_1_SendGiftCardByEmail(){
@@ -31,11 +24,11 @@ public class GiftCardReceiverConfirmTest extends TestBaseForLastTestClass {
             userAction.clickElement(confirmReceiver.sendGiftCardByEmail);
             isClicked = true;
         }catch(Exception e){
-            testReportForConfirmReceiver.log(Status.ERROR, "email option was not clicked");
-            testReportForConfirmReceiver.log(Status.INFO, e.getMessage());
+            receiverScreen.testReportForGiftCardReceiver.log(Status.ERROR, "email option was not clicked");
+            receiverScreen.testReportForGiftCardReceiver.log(Status.INFO, e.getMessage());
         }finally {
             if(isClicked){
-                testReportForConfirmReceiver.log(Status.PASS, "email option clicked succesfully");
+                receiverScreen.testReportForGiftCardReceiver.log(Status.PASS, "email option clicked succesfully");
             }
         }
     }
@@ -47,11 +40,11 @@ public class GiftCardReceiverConfirmTest extends TestBaseForLastTestClass {
             userAction.userInput(confirmReceiver.emailForGiftCard,confirmReceiver.emailForGift);
             isClicked = true;
         }catch (Exception e){
-            testReportForConfirmReceiver.log(Status.ERROR, "receiver email input failed");
-            testReportForConfirmReceiver.log(Status.INFO, e.getMessage());
+            receiverScreen.testReportForGiftCardReceiver.log(Status.ERROR, "receiver email input failed");
+            receiverScreen.testReportForGiftCardReceiver.log(Status.INFO, e.getMessage());
         }finally {
             if(isClicked)
-                testReportForConfirmReceiver.log(Status.PASS, "receiver email input succeeded");
+                receiverScreen.testReportForGiftCardReceiver.log(Status.PASS, "receiver email input succeeded");
 
         }
     }
@@ -62,30 +55,30 @@ public class GiftCardReceiverConfirmTest extends TestBaseForLastTestClass {
             userAction.clickElement(confirmReceiver.confirmGiftEmail);
             isClicked = true;
         }catch(Exception e){
-            testReportForConfirmReceiver.log(Status.ERROR, "receiver email has not been confirmed");
-            testReportForConfirmReceiver.log(Status.INFO, e.getMessage());
+            receiverScreen.testReportForGiftCardReceiver.log(Status.ERROR, "receiver email has not been confirmed");
+            receiverScreen.testReportForGiftCardReceiver.log(Status.INFO, e.getMessage());
         }finally {
             if(isClicked)
-                testReportForConfirmReceiver.log(Status.PASS, "receiver email confirmed succesfully");
+                receiverScreen.testReportForGiftCardReceiver.log(Status.PASS, "receiver email confirmed succesfully");
         }
     }
 
     @Test
     public void test_4_GiftReceiverCoinfirm() throws IOException, InterruptedException {
 
-        screenShot.setScreenShotToReportDetails("gift card details", testReportForConfirmReceiver);
+        screenShot.setScreenShotToReportDetails("gift card details", receiverScreen.testReportForGiftCardReceiver);
 
         try {
             userAction.clickElement(confirmReceiver.submitGiftCardReceiverDetails);
             isClicked = true;
         } catch (Exception e) {
-            testReportForConfirmReceiver.log(Status.ERROR, "gift card submit button was not clicked");
-            testReportForConfirmReceiver.log(Status.INFO, e.getMessage());
+            receiverScreen.testReportForGiftCardReceiver.log(Status.ERROR, "gift card submit button was not clicked");
+            receiverScreen.testReportForGiftCardReceiver.log(Status.INFO, e.getMessage());
         } finally {
             if (isClicked)
-                testReportForConfirmReceiver.log(Status.PASS, "gift card submit button was clicked");
-                Thread.sleep(2000);
-                screenShot.setScreenShotToReportDetails("final Screen", testReportForConfirmReceiver);
+                receiverScreen.testReportForGiftCardReceiver.log(Status.PASS, "gift card submit button was clicked");
+                Thread.sleep(3000);
+                screenShot.setScreenShotToReportDetails("final Screen", receiverScreen.testReportForGiftCardReceiver);
         }
     }
 }

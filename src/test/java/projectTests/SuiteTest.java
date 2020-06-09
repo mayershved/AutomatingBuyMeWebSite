@@ -8,9 +8,9 @@ import org.junit.runners.Suite;
         SignInTest.class,
         HomeScreenTest.class,
         GiftCardsScreenTest.class,
-//        GiftCardSupplierTest.class,
-//        GiftCardReceiverTest.class,
-//        GiftCardReceiverConfirmTest.class,
+        GiftCardSupplierTest.class,
+        GiftCardReceiverTest.class,
+        GiftCardReceiverConfirmTest.class,
 })
 
 public class SuiteTest {

@@ -98,7 +98,5 @@ public class SignInTest extends SignIn_SignUp_TestBase {
             if (isClicked)
                 testReportForSignIn.log(Status.PASS, "signIn button is pressed, user was signedIn successfully");
         }
-        Thread.sleep(2000);
-        screenShot.setScreenShotToReportDetails("BuyMe user home page", testReportForSignIn);
     }
 }

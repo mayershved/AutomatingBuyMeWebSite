@@ -16,12 +16,12 @@ public class GiftCardReceiverTest extends CommonTestBase {
 
     private GiftCardReceiverScreen  giftReceiver= new GiftCardReceiverScreen();
     private ScreenShot screenShot = new ScreenShot(singletonDriver.driver);
-    private static ExtentTest testReportForGiftCardReceiver;
+    public static ExtentTest testReportForGiftCardReceiver;
 
     @Test
     public void test_0_SetUpExtentTest() {
         testReportForGiftCardReceiver = singletonReport.extentReport
-                .createTest("SingIn existing user", "open BuyMeLandingPage, signIn existing user ");
+                .createTest("Gift Card Receiver Screen Reports", "open BuyMeLandingPage, signIn existing user ");
     }
 
     @Test

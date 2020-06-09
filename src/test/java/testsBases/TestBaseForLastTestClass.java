@@ -17,7 +17,7 @@ public class TestBaseForLastTestClass {
 
     @BeforeClass
     public static void testBaseForHomeScreen() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         singletonReport = SingletonReport.getInstance();
         userAction = new UserActions(singletonDriver.driver);
     }
@@ -34,7 +34,7 @@ public class TestBaseForLastTestClass {
     @AfterClass
     public static void tearDownHomeScreenTest() throws InterruptedException {
         singletonReport.extentReport.flush();
-        Thread.sleep(3000);
+        Thread.sleep(1000);
         singletonDriver.driver.quit();
     }
 }

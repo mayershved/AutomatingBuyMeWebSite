@@ -21,7 +21,7 @@ public class GiftCardsScreenTest extends CommonTestBase {
     @Test
     public void test_0_setExtendTest(){
         testReportForGiftCardsScreen = singletonReport.extentReport
-                .createTest("Gift Cards Screen test reports", "choose gift card company");
+                .createTest("Gift Cards Screen Reports", "choose gift card company");
     }
 
     @Test
@@ -39,7 +39,5 @@ public class GiftCardsScreenTest extends CommonTestBase {
             if(isClicked)
                 testReportForGiftCardsScreen.log(Status.PASS, "gift card company was clicked");
         }
-        Thread.sleep(1500);
-        screenShot.setScreenShotToReportDetails("Gift Card",testReportForGiftCardsScreen);
     }
 }

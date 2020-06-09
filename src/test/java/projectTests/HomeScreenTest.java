@@ -21,7 +21,7 @@ public class HomeScreenTest extends CommonTestBase {
     @Test
     public void test_0_setExtendTest(){
         testReportsForHomeScreen = singletonReport.extentReport
-                .createTest("Home Screen test reports", "test reports for Home Screen");
+                .createTest("Home Screen Reports", "test reports for Home Screen");
     }
 
     @Test
@@ -127,7 +127,5 @@ public class HomeScreenTest extends CommonTestBase {
             if(isClicked)
                 testReportsForHomeScreen.log(Status.PASS, "gift card search info submitted successfully");
         }
-        Thread.sleep(1500);
-        screenShot.setScreenShotToReportDetails("Gift cards search result screen", testReportsForHomeScreen);
     }
 }
