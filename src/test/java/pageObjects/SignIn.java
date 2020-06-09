@@ -12,5 +12,4 @@ public class SignIn {
 
     public By signInUserButton = By.xpath("//button[text() = 'כניסה ל-BUYME']");
 
-    public By emptyEmailAndPasswordWarning = By.xpath("//li[text() = 'כל המתנות מחכות לך! אבל קודם צריך מייל וסיסמה']");
 }

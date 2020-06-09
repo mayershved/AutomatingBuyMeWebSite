@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class UserActions {
 
-    WebDriver driver;
+    private WebDriver driver;
 
     public void navigateToWebPage(String URL){
         driver.get(URL);

@@ -2,16 +2,14 @@ package projectTests;
 
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
+import commonMethods.Extras;
 import commonMethods.ProjectConfigData;
 import commonMethods.ScreenShot;
-import org.openqa.selenium.WebElement;
 import pageObjects.SignIn;
 import org.junit.runners.MethodSorters;
 import org.junit.*;
 import testsBases.SignIn_SignUp_TestBase;
-
 import java.io.IOException;
-import java.util.List;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class SignInTest extends SignIn_SignUp_TestBase {
@@ -20,6 +18,7 @@ public class SignInTest extends SignIn_SignUp_TestBase {
     private ProjectConfigData configData = new ProjectConfigData();
     private static SignIn signIn = new SignIn();
     private static ExtentTest testReportForSignIn;
+    private static Extras extras = new Extras(singletonDriver.driver);
 
     private String url = "https://buyme.co.il/";
 
@@ -58,38 +57,62 @@ public class SignInTest extends SignIn_SignUp_TestBase {
         }
     }
 
-//    @Test
-//    public void test_3_EnterEmail() {
-//        try {
-//            userAction.userInput(signIn.emailAdressElement, configData.getUserEmail());
-//            isClicked = true;
-//        } catch (Exception e) {
-//            testReportForSignIn.log(Status.ERROR, "email input failed");
-//            testReportForSignIn.log(Status.INFO, e.getMessage());
-//        } finally {
-//            if (isClicked)
-//                testReportForSignIn.log(Status.PASS, "email input is passed");
-//        }
-//    }
-
-//    @Test
-//    public void test_4_EnterPassword() throws IOException {
-//
-//        try {
-//            userAction.userInput(signIn.passwordElement, configData.getUserPassword());
-//            isClicked = true;
-//        } catch (Exception e) {
-//            testReportForSignIn.log(Status.ERROR, "password input failed");
-//            testReportForSignIn.log(Status.INFO, e.getMessage());
-//        } finally {
-//            if (isClicked)
-//                testReportForSignIn.log(Status.PASS, "password input is passed");
-//                screenShot.setScreenShotToReportDetails("user info", testReportForSignIn);
-//        }
-//    }
+    @Test
+    public void test_3_SignInUser() throws IOException {
+        SignInUser();
+        testReportForSignIn.log(Status.FAIL, "missing user email and password");
+        screenShot.setScreenShotToReportDetails("error messages",testReportForSignIn);
+    }
 
     @Test
-    public void test_5_SignUpUser() throws InterruptedException, IOException {
+    public void test_4_assertEmailErrorMessage() {
+        extras.setListOfElements(extras.emptyEmailAndPasswordWarning);
+        extras.asserExtrasMethod(extras.ERRORMESSAGE,extras.webElements.get(0).getText());
+    }
+
+    @Test
+    public void test_5_assertPasswordErrorMessage() {
+        extras.setListOfElements(extras.emptyEmailAndPasswordWarning);
+        extras.asserExtrasMethod(extras.ERRORMESSAGE, extras.webElements.get(1).getText());
+    }
+
+    @Test
+    public void test_6_EnterEmail() {
+        try {
+            userAction.userInput(signIn.emailAdressElement, configData.getUserEmail());
+            isClicked = true;
+        } catch (Exception e) {
+            testReportForSignIn.log(Status.ERROR, "email input failed");
+            testReportForSignIn.log(Status.INFO, e.getMessage());
+        } finally {
+            if (isClicked)
+                testReportForSignIn.log(Status.PASS, "email input is passed");
+        }
+    }
+
+    @Test
+    public void test_7_EnterPassword() throws IOException {
+
+        try {
+            userAction.userInput(signIn.passwordElement, configData.getUserPassword());
+            isClicked = true;
+        } catch (Exception e) {
+            testReportForSignIn.log(Status.ERROR, "password input failed");
+            testReportForSignIn.log(Status.INFO, e.getMessage());
+        } finally {
+            if (isClicked)
+                testReportForSignIn.log(Status.PASS, "password input is passed");
+                screenShot.setScreenShotToReportDetails("user info", testReportForSignIn);
+        }
+    }
+
+    @Test
+    public void test_8_signInUser(){
+        SignInUser();
+    }
+
+    //check if it is good implementation and cleane code
+    private void SignInUser(){
         try {
             userAction.clickElement(signIn.signInUserButton);
             isClicked = true;
@@ -98,15 +121,7 @@ public class SignInTest extends SignIn_SignUp_TestBase {
             testReportForSignIn.log(Status.INFO, e.getMessage());
         } finally {
             if (isClicked)
-                testReportForSignIn.log(Status.PASS, "signIn button is pressed, user was signedIn successfully");
+                testReportForSignIn.log(Status.PASS, "signIn button is pressed");
         }
-    }
-
-    @Test
-    public void test_6_emptyEmailWarning(){
-        List <WebElement> worningComments = singletonDriver.driver.findElements(signIn.emptyEmailAndPasswordWarning);
-        System.out.println(worningComments.size());
-        System.out.println(worningComments.get(0).getText());
-        System.out.println(worningComments.get(1).getText());
     }
 }
