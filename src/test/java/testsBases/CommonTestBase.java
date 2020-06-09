@@ -14,12 +14,14 @@ public class CommonTestBase {
     protected static SingletonDriver singletonDriver = SingletonDriver.getInstance();
     protected static SingletonReport singletonReport;
     protected static UserActions userAction;
+    protected static Extras extras;
     protected boolean isClicked;
 
     @BeforeClass
     public static void testBaseForHomeScreen(){
         singletonReport = SingletonReport.getInstance();
         userAction = new UserActions(singletonDriver.driver);
+        extras = new Extras(singletonDriver.driver, singletonReport.extentReport);
     }
 
     @Before

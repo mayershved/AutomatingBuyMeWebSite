@@ -31,7 +31,6 @@ public class SignInTest extends SignIn_SignUp_TestBase {
     @Test
     public void test_02_ExtrasReports(){
         extras.setExtrasTestReports("Extras for SignIn Screen", "Extras SignIn Screen assignment");
-    extras.testReportsForExtras.log(Status.INFO,"kwebfewkfbekwbfkjewbfkjeqwbfkjeqb");
     }
 
     @Test

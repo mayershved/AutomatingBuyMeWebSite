@@ -13,8 +13,8 @@ import java.util.List;
 public class Extras {
 
     public WebDriver driver;
-    public ExtentReports extentReports;
-    public ExtentTest testReportsForExtras;
+    public  ExtentReports extentReports;
+    public  ExtentTest testReportsForExtras;
 
     // class constants
     public final String ERRORMESSAGE = "כל המתנות מחכות לך! אבל קודם צריך מייל וסיסמה";
@@ -45,7 +45,8 @@ public class Extras {
     }
 
     public Extras(WebDriver driver, ExtentReports extentReports){
-        this.extentReports = extentReports;
         this.driver = driver;
+        this.extentReports = extentReports;
+
     }
 }
