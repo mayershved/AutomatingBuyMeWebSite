@@ -21,11 +21,11 @@ public class GiftCardsScreenTest extends CommonTestBase {
     @Test
     public void test_0_setExtendTest(){
         testReportForGiftCardsScreen = singletonReport.extentReport
-                .createTest("Test reports for Gift cards screen", "choose gift card company");
+                .createTest("Gift Cards Screen test reports", "choose gift card company");
     }
 
     @Test
-    public void test_1_ChooseGiftCardCompany() throws IOException {
+    public void test_1_ChooseGiftCardCompany() throws IOException, InterruptedException {
 
         screenShot.setScreenShotToReportDetails("Gift cards screen",testReportForGiftCardsScreen);
 
@@ -39,5 +39,7 @@ public class GiftCardsScreenTest extends CommonTestBase {
             if(isClicked)
                 testReportForGiftCardsScreen.log(Status.PASS, "gift card company was clicked");
         }
+        Thread.sleep(1500);
+        screenShot.setScreenShotToReportDetails("Gift Card",testReportForGiftCardsScreen);
     }
 }

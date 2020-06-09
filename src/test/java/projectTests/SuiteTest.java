@@ -7,7 +7,7 @@ import org.junit.runners.Suite;
 @Suite.SuiteClasses({
         SignInTest.class,
         HomeScreenTest.class,
-//        GiftCardsScreenTest.class,
+        GiftCardsScreenTest.class,
 //        GiftCardSupplierTest.class,
 //        GiftCardReceiverTest.class,
 //        GiftCardReceiverConfirmTest.class,

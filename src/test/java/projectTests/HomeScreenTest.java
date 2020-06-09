@@ -127,7 +127,7 @@ public class HomeScreenTest extends CommonTestBase {
             if(isClicked)
                 testReportsForHomeScreen.log(Status.PASS, "gift card search info submitted successfully");
         }
-        Thread.sleep(2000);
+        Thread.sleep(1500);
         screenShot.setScreenShotToReportDetails("Gift cards search result screen", testReportsForHomeScreen);
     }
 }
