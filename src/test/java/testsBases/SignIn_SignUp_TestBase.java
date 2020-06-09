@@ -5,12 +5,11 @@ import com.aventstack.extentreports.Status;
 import commonMethods.UserActions;
 import org.junit.After;
 import org.junit.AfterClass;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import singleton.SingletonDriver;
 import singleton.SingletonReport;
-import java.util.concurrent.TimeUnit;
-import static org.junit.Assert.fail;
 
 public class SignIn_SignUp_TestBase {
 
@@ -34,33 +33,33 @@ public class SignIn_SignUp_TestBase {
 
         try {
             singletonDriver.setProjectDriver();
-            singletonDriver.driver.manage().window().maximize();
-            singletonDriver.driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
             establishedDriver = ((RemoteWebDriver) singletonDriver.driver).getCapabilities().getBrowserName().toLowerCase();
-            testReportsForWebDriverSetUp.log(Status.INFO, "in this project it is used " +establishedDriver+" webDriver");
+            testReportsForWebDriverSetUp.log(Status.INFO, "In this project it is used " +establishedDriver+" WebDriver");
             isDriverEstablished = true;
         } catch (Exception e) {
             e.printStackTrace();
-            fail("Cant connect to"+" "+establishedDriver);
-            testReportsForWebDriverSetUp.log(Status.FATAL, establishedDriver +" "+"driver Connection Failed! " + e.getMessage());
+            testReportsForWebDriverSetUp.log(Status.FATAL, establishedDriver +" "+"WebDriver Connection Failed! ");
+            testReportsForWebDriverSetUp.log(Status.INFO, e.getMessage());
             isDriverEstablished = false;
         } finally {
             if (isDriverEstablished) {
-                testReportsForWebDriverSetUp.log(Status.PASS, establishedDriver +" "+"driver established successfully");
+                testReportsForWebDriverSetUp.log(Status.PASS, establishedDriver +" "+"WebDriver established successfully");
             }
         }
         userAction = new UserActions(singletonDriver.driver);
     }
 
-    @After
-    public void afterEach() throws InterruptedException {
+    @Before
+    public void beforeEachTest(){
         isClicked = false;
-        Thread.sleep(100);
+    }
+
+    @After
+    public void afterEach(){
     }
 
     @AfterClass
-    public static void tearDown_SignIn_SignUp_Test() throws InterruptedException {
+    public static void tearDown_SignIn_SignUp_Test(){
         singletonReport.extentReport.flush();
-        Thread.sleep(300);
     }
 }

@@ -8,7 +8,7 @@ import org.junit.BeforeClass;
 import singleton.SingletonDriver;
 import singleton.SingletonReport;
 
-public class CommonTestBase {
+public class TestBaseForLastTestClass {
 
     protected static SingletonDriver singletonDriver = SingletonDriver.getInstance();
     protected static SingletonReport singletonReport;
@@ -16,7 +16,8 @@ public class CommonTestBase {
     protected boolean isClicked;
 
     @BeforeClass
-    public static void testBaseForHomeScreen(){
+    public static void testBaseForHomeScreen() throws InterruptedException {
+        Thread.sleep(3000);
         singletonReport = SingletonReport.getInstance();
         userAction = new UserActions(singletonDriver.driver);
     }
@@ -27,11 +28,13 @@ public class CommonTestBase {
     }
 
     @After
-    public void afterEach(){
+    public void afterEach() {
     }
 
     @AfterClass
-    public static void tearDownHomeScreenTest(){
+    public static void tearDownHomeScreenTest() throws InterruptedException {
         singletonReport.extentReport.flush();
+        Thread.sleep(3000);
+        singletonDriver.driver.quit();
     }
 }

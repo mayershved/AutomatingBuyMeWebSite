@@ -34,10 +34,10 @@ public class SignInTest extends SignIn_SignUp_TestBase {
 
         if (url.equals(singletonDriver.driver.getCurrentUrl())) {
             testReportForSignIn.log(Status.PASS, "BuyMe landing page is oppened");
-            screenShot.setScreenShotToReportDetails("BuyMeLandingPage", testReportForSignIn);
+            screenShot.setScreenShotToReportDetails("BuyMe landing page", testReportForSignIn);
         } else {
             testReportForSignIn.log(Status.FAIL, "BuyMe landing page is not oppened");
-            screenShot.setScreenShotToReportDetails("BuyMeLandingPage", testReportForSignIn);
+            screenShot.setScreenShotToReportDetails("BuyMe landing page", testReportForSignIn);
         }
     }
 
@@ -52,7 +52,7 @@ public class SignInTest extends SignIn_SignUp_TestBase {
         } finally {
             if (isClicked)
                 testReportForSignIn.log(Status.PASS, "SignInSignUp button was clicked");
-            screenShot.setScreenShotToReportDetails("SignIn Modal", testReportForSignIn);
+                screenShot.setScreenShotToReportDetails("SignIn Modal", testReportForSignIn);
         }
     }
 
@@ -66,7 +66,7 @@ public class SignInTest extends SignIn_SignUp_TestBase {
             testReportForSignIn.log(Status.INFO, e.getMessage());
         } finally {
             if (isClicked)
-                testReportForSignIn.log(Status.PASS, "user email input is passed");
+                testReportForSignIn.log(Status.PASS, "email input is passed");
         }
     }
 
@@ -81,13 +81,13 @@ public class SignInTest extends SignIn_SignUp_TestBase {
             testReportForSignIn.log(Status.INFO, e.getMessage());
         } finally {
             if (isClicked)
-                testReportForSignIn.log(Status.PASS, "user password input is passed");
+                testReportForSignIn.log(Status.PASS, "password input is passed");
                 screenShot.setScreenShotToReportDetails("user info", testReportForSignIn);
         }
     }
 
     @Test
-    public void test_5_SignUpUser(){
+    public void test_5_SignUpUser() throws InterruptedException, IOException {
         try {
             userAction.clickElement(signIn.signInUserButton);
             isClicked = true;
@@ -96,7 +96,9 @@ public class SignInTest extends SignIn_SignUp_TestBase {
             testReportForSignIn.log(Status.INFO, e.getMessage());
         } finally {
             if (isClicked)
-                testReportForSignIn.log(Status.PASS, "user was signedIn succesfully");
+                testReportForSignIn.log(Status.PASS, "signIn button is pressed, user was signedIn successfully");
         }
+        Thread.sleep(2000);
+        screenShot.setScreenShotToReportDetails("BuyMe user home page", testReportForSignIn);
     }
 }

@@ -25,7 +25,7 @@ public class SignUpTest extends SignIn_SignUp_TestBase {
     @Test
     public void test_0_SetUpExtentTest(){
         testReportForSignUp = singletonReport.extentReport
-                .createTest("SingUp new user", "open BuyMeLandingPage, singUp new user ");
+                .createTest("SingUp new user", "Open BuyMe landing page, singUp new user ");
     }
 
     @Test
@@ -34,11 +34,11 @@ public class SignUpTest extends SignIn_SignUp_TestBase {
         userAction.navigateToWebPage(configData.getBuyMeLandingPageUrl());
 
         if (url.equals(singletonDriver.driver.getCurrentUrl())) {
-            testReportForSignUp.log(Status.PASS, "BuyMe landing page is oppened");
-            screenShot.setScreenShotToReportDetails("BuyMeLandingPage", testReportForSignUp);
+            testReportForSignUp.log(Status.PASS, "BuyMe landing page it is oppened successfully");
+            screenShot.setScreenShotToReportDetails("BuyMe landing page", testReportForSignUp);
         }else {
             testReportForSignUp.log(Status.FAIL, "BuyMe landing page is not oppened");
-            screenShot.setScreenShotToReportDetails("BuyMeLandingPage", testReportForSignUp);
+            screenShot.setScreenShotToReportDetails("BuyMeLandingPage not oppened", testReportForSignUp);
         }
     }
 
@@ -96,7 +96,7 @@ public class SignUpTest extends SignIn_SignUp_TestBase {
             testReportForSignUp.log(Status.INFO, e.getMessage());
         }finally {
             if(isClicked)
-                testReportForSignUp.log(Status.PASS, "user email input is passed");
+                testReportForSignUp.log(Status.PASS, "email input is passed");
         }
     }
 
@@ -111,7 +111,7 @@ public class SignUpTest extends SignIn_SignUp_TestBase {
             testReportForSignUp.log(Status.INFO, e.getMessage());
         }finally {
             if(isClicked)
-                testReportForSignUp.log(Status.PASS, "user password input is passed");
+                testReportForSignUp.log(Status.PASS, "password input is passed");
         }
     }
 
@@ -122,15 +122,15 @@ public class SignUpTest extends SignIn_SignUp_TestBase {
             isClicked = true;
         }catch (Exception e){
             testReportForSignUp.log(Status.ERROR, "confirm password input failed");
-            testReportForSignUp.log(Status.INFO, e.getMessage());;
+            testReportForSignUp.log(Status.INFO, e.getMessage());
         }finally {
             if (isClicked)
-                testReportForSignUp.log(Status.PASS, "user confirm password input is passed");
+                testReportForSignUp.log(Status.PASS, "confirm password input is passed");
         }
     }
 
     @Test
-    public void test_8_SignUpNewUser() throws IOException {
+    public void test_8_SignUpNewUser() throws IOException, InterruptedException {
         screenShot.setScreenShotToReportDetails("user info",testReportForSignUp);
         try{
             userAction.clickElement(signUp.signUpNewUserButton);
@@ -140,7 +140,10 @@ public class SignUpTest extends SignIn_SignUp_TestBase {
             testReportForSignUp.log(Status.INFO, e.getMessage());
         }finally {
             if(isClicked)
-                testReportForSignUp.log(Status.PASS, "new user was signedUp succesfully");
+                testReportForSignUp.log(Status.PASS, "signUp button is pressed, new user was signedUp successfully");
         }
+        Thread.sleep(2000);
+        screenShot.setScreenShotToReportDetails("BuyMe user home page", testReportForSignUp);
     }
+
 }

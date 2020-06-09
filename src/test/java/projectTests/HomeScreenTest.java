@@ -21,7 +21,7 @@ public class HomeScreenTest extends CommonTestBase {
     @Test
     public void test_0_setExtendTest(){
         testReportsForHomeScreen = singletonReport.extentReport
-                .createTest("Test reports for Home Screen", "test reports for Home Screen");
+                .createTest("Home Screen test reports", "test reports for Home Screen");
     }
 
     @Test
@@ -115,7 +115,7 @@ public class HomeScreenTest extends CommonTestBase {
     }
 
     @Test
-    public void test_7_SubmitUserSearch() throws IOException {
+    public void test_7_SubmitUserSearch() throws IOException, InterruptedException {
         screenShot.setScreenShotToReportDetails("gift card search info", testReportsForHomeScreen);
         try{
             userAction.clickElement(homeScreen.submitUserChoose);
@@ -125,7 +125,9 @@ public class HomeScreenTest extends CommonTestBase {
             testReportsForHomeScreen.log(Status.INFO, e.getMessage());
         }finally {
             if(isClicked)
-                testReportsForHomeScreen.log(Status.PASS, "gift card search info submitted succesfully");
+                testReportsForHomeScreen.log(Status.PASS, "gift card search info submitted successfully");
         }
+        Thread.sleep(2000);
+        screenShot.setScreenShotToReportDetails("Gift cards search result screen", testReportsForHomeScreen);
     }
 }

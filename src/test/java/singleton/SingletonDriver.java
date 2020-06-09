@@ -40,7 +40,7 @@ public class SingletonDriver {
         if(configData.getBrowserType().equals("Chrome")){
             setChromeDriver();
             driver.manage().window().maximize();
-            driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         }else if(configData.getBrowserType().equals("firefox")){
             setFirefoxDriver();
         }

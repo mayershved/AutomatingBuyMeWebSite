@@ -12,14 +12,15 @@ public class GiftCardReceiverScreen {
 
     public By receiverNameElement = By.xpath("//div[@class = 'mx2 md1']/label/input");
 
+    public By giftCardReasonDropMenu = By.xpath("//span[text() = 'לאיזה אירוע?']");
 
-//    public By giftCardReasonDropMenu = By.xpath("//span[text() = 'לאיזה אירוע?']");
-//    public By giftCardReasonOption = By.xpath("//*[text() = 'לידה']");
-
+    // check how to click this element, not used in the test
+    public By giftCardReasonOption = By.xpath("//*[text() = 'לידה']");
 
     public By blessingTextElement = By.xpath("//label[@class = 'ember-view ui-field ui-textarea']/textarea");
 
-   // public By loadImage = By.xpath("//div[@class = 'media-fields']/label/input");
+    // check how to click this element, not used in the test
+    public By loadImage = By.xpath("//div[@class = 'media-fields']/label/input");
 
     public By GiftPaymentTime = By.cssSelector("label.send-now");
 
@@ -27,7 +28,7 @@ public class GiftCardReceiverScreen {
 
     public  By emailForGiftCard = By.xpath("//input[@placeholder = 'כתובת המייל של מקבל/ת המתנה']");
 
-    public By confirmGiftEmail = By.xpath("//button[text() = 'שמירה']");
+    public By confirmGiftEmail = By.cssSelector("button.btn.btn-theme.btn-save");
 
     public By submitGiftCardReceiverDetails = By.xpath("//button[text() = 'תשלום']");
 }
