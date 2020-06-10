@@ -4,13 +4,16 @@ import org.openqa.selenium.By;
 
 public class GiftCardReceiverScreen {
 
-    public String receiverName = "receiver";
+    public String receiverName = "ReceiverName";
+    public String senedrName = "SenderName";
     public String blessingText = "blessingText";
     public String emailForGift = "beuuc@dg.com";
 
     public By receiverOption = By.xpath("//span[text() = 'למישהו אחר']");
 
     public By receiverNameElement = By.xpath("//div[@class = 'mx2 md1']/label/input");
+
+    public By senderNameElement = By.xpath("//div[@class = 'mx2 md1']/label[2]/input");
 
     public By giftCardReasonDropMenu = By.xpath("//span[text() = 'לאיזה אירוע?']");
 

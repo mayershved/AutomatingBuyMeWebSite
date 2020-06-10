@@ -1,6 +1,7 @@
 package pageObjects;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 
 public class HomeScreen{
 
@@ -17,5 +18,4 @@ public class HomeScreen{
     public By categoryOption = By.xpath("//li[text() = 'גיפט קארד למסעדות שף']");
 
     public By submitUserChoose = By.xpath("//a[text() = 'תמצאו לי מתנה']");
-
 }

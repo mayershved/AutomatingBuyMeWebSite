@@ -72,13 +72,13 @@ public class SignInTest extends SignIn_SignUp_TestBase {
     @Test
     public void test_06_assertEmailErrorMessage() {
         extras.setListOfElements(extras.emptyEmailAndPasswordWarning);
-        extras.asserExtrasMethod(extras.ERRORMESSAGE,extras.webElements.get(0).getText());
+        Assert.assertEquals(extras.ERRORMESSAGE,extras.webElements.get(0).getText());
     }
 
     @Test
     public void test_07_assertPasswordErrorMessage() {
         extras.setListOfElements(extras.emptyEmailAndPasswordWarning);
-        extras.asserExtrasMethod(extras.ERRORMESSAGE, extras.webElements.get(1).getText());
+        Assert.assertEquals(extras.ERRORMESSAGE, extras.webElements.get(1).getText());
     }
 
     @Test

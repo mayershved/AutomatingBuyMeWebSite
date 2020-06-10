@@ -25,43 +25,7 @@ public class HomeScreenTest extends CommonTestBase {
     }
 
     @Test
-    public void test_02_ExtrasReports() throws IOException {
-        extras.setExtrasTestReports("Extras for SignIn Screen", "Extras SignIn Screen assignment");
-    }
-
-    @Test
-    public void test_03_ScrollDownExtras() throws InterruptedException, IOException {
-        Thread.sleep(1000);
-        try {
-            extras.scrollPage(0, 2000);
-            isClicked = true;
-        }catch (Exception e){
-            extras.testReportsForExtras.log(Status.ERROR, "page was not scrolled down");
-            extras.testReportsForExtras.log(Status.INFO, e.getMessage());
-        }finally {
-            if (isClicked)
-                extras.testReportsForExtras.log(Status.INFO,"scrolled down");
-                screenShot.setScreenShotToReportDetails("scroll to bottom of the Home Screen", extras.testReportsForExtras);
-        }
-    }
-
-    @Test
-    public void test_04_ScrolUpExtras() throws InterruptedException, IOException {
-        try {
-            extras.scrollPage(0, -2000);
-            isClicked = true;
-        } catch (Exception e) {
-            extras.testReportsForExtras.log(Status.ERROR, "page was not scrolled up");
-            extras.testReportsForExtras.log(Status.INFO, e.getMessage());
-        } finally {
-            if (isClicked)
-                extras.testReportsForExtras.log(Status.INFO,"page scrolled up");
-                screenShot.setScreenShotToReportDetails("scroll up the Home Screen", extras.testReportsForExtras);
-        }
-    }
-
-    @Test
-    public void test_05_PriceDropMenu() throws IOException {
+    public void test_02_PriceDropMenu() throws IOException {
 
         screenShot.setScreenShotToReportDetails("BuyMe landing page", testReportsForHomeScreen);
 
@@ -79,7 +43,7 @@ public class HomeScreenTest extends CommonTestBase {
     }
 
     @Test
-    public void test_06_ChoosePrice(){
+    public void test_03_ChoosePrice(){
         try{
             userAction.clickElement(homeScreen.priceOption);
             isClicked = true;
@@ -93,7 +57,7 @@ public class HomeScreenTest extends CommonTestBase {
     }
 
     @Test
-    public void test_07_AreaDropMenu() throws IOException {
+    public void test_04_AreaDropMenu() throws IOException {
         try{
             userAction.clickElement(homeScreen.areaDropMenu);
             isClicked = true;
@@ -108,7 +72,7 @@ public class HomeScreenTest extends CommonTestBase {
     }
 
     @Test
-    public void test_08_ChoseArea(){
+    public void test_05_ChoseArea(){
         try{
             userAction.clickElement(homeScreen.areaOption);
             isClicked = true;
@@ -122,7 +86,7 @@ public class HomeScreenTest extends CommonTestBase {
     }
 
     @Test
-    public void test_09_CategoryDropMenu() throws IOException {
+    public void test_06_CategoryDropMenu() throws IOException {
         try{
             userAction.clickElement(homeScreen.categoryDropMenu);
             isClicked = true;
@@ -137,7 +101,7 @@ public class HomeScreenTest extends CommonTestBase {
     }
 
     @Test
-    public void test_10_ChooseCategory() {
+    public void test_07_ChooseCategory() {
         try{
             userAction.clickElement(homeScreen.categoryOption);
             isClicked = true;
@@ -151,7 +115,7 @@ public class HomeScreenTest extends CommonTestBase {
     }
 
     @Test
-    public void test_11_SubmitUserSearch() throws IOException, InterruptedException {
+    public void test_08_SubmitUserSearch() throws IOException, InterruptedException {
         screenShot.setScreenShotToReportDetails("gift card search info", testReportsForHomeScreen);
         try{
             userAction.clickElement(homeScreen.submitUserChoose);

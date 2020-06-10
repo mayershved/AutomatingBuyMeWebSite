@@ -19,13 +19,47 @@ public class GiftCardsScreenTest extends CommonTestBase {
     private static ExtentTest testReportForGiftCardsScreen;
 
     @Test
-    public void test_0_setExtendTest(){
+    public void test_01_setExtendTest(){
         testReportForGiftCardsScreen = singletonReport.extentReport
                 .createTest("Gift Cards Screen Reports", "choose gift card company");
     }
 
     @Test
-    public void test_1_ChooseGiftCardCompany() throws IOException, InterruptedException {
+    public void test_02_ExtrasReports() throws IOException {
+        extras.setExtrasTestReports("Extras for Gift Cards Screen", "Extras Gift Cards Screen assignment");
+    }
+
+    @Test
+    public void test_03_ScrollDownExtras() throws InterruptedException, IOException {
+        Thread.sleep(1000);
+        try {
+            extras.scrollPage(0, 3000);
+            isClicked = true;
+        }catch (Exception e){
+            extras.testReportsForExtras.log(Status.ERROR, "page was not scrolled down");
+            extras.testReportsForExtras.log(Status.INFO, e.getMessage());
+        }finally {
+            if (isClicked)
+                screenShot.setScreenShotToReportDetails("scroll to bottom of the Home Screen", extras.testReportsForExtras);
+        }
+    }
+
+    @Test
+    public void test_04_ScrolUpExtras() throws InterruptedException, IOException {
+        try {
+            extras.scrollPage(0, -5000);
+            isClicked = true;
+        } catch (Exception e) {
+            extras.testReportsForExtras.log(Status.ERROR, "page was not scrolled up");
+            extras.testReportsForExtras.log(Status.INFO, e.getMessage());
+        } finally {
+            if (isClicked)
+                screenShot.setScreenShotToReportDetails("scroll up the Home Screen", extras.testReportsForExtras);
+        }
+    }
+
+    @Test
+    public void test_05_ChooseGiftCardCompany() throws IOException, InterruptedException {
 
         screenShot.setScreenShotToReportDetails("Gift cards screen",testReportForGiftCardsScreen);
 

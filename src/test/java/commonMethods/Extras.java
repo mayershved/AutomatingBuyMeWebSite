@@ -18,20 +18,32 @@ public class Extras {
 
     // class constants
     public final String ERRORMESSAGE = "כל המתנות מחכות לך! אבל קודם צריך מייל וסיסמה";
+    public final String STEPNAMECOLOR = "#fab442";
 
     // class By variables
     public By emptyEmailAndPasswordWarning = By.xpath("//li[text() = 'כל המתנות מחכות לך! אבל קודם צריך מייל וסיסמה']");
 
+    public By stepNameColorElement = By.cssSelector("div.step-title.highlighted");
+
+    public By receiverNamePreview = By.xpath("//div[@class = 'receiver']/span[2]");
+
+    public By senderNamePreview = By.xpath("//div[@class = 'sender']/span[2]");
+
+    public By blessingElement = By.cssSelector("p.card-text.cut-greeting");
+
+
     //class lists of web elements
     public List<WebElement> webElements;
 
-
-    public void asserExtrasMethod(String expected, String actual){
-        Assert.assertEquals(expected, actual);
-    }
-
     public void setListOfElements(By element){
         webElements  = driver.findElements(element);
+    }
+
+
+    // class methods
+
+    public void setExtrasTestReports(String testReportstitle, String description) {
+        testReportsForExtras = extentReports.createTest(testReportstitle, description);
     }
 
     public void scrollPage(int x, int y){
@@ -39,10 +51,11 @@ public class Extras {
         js.executeScript("javascript:window.scrollBy("+x+","+y+")");
     }
 
-
-    public void setExtrasTestReports(String testReportstitle, String description) {
-        testReportsForExtras = extentReports.createTest(testReportstitle, description);
+    public WebElement getElement(By element){
+        return driver.findElement(element);
     }
+
+
 
     public Extras(WebDriver driver, ExtentReports extentReports){
         this.driver = driver;

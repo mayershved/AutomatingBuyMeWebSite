@@ -3,9 +3,11 @@ package projectTests;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import commonMethods.ScreenShot;
+import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
+import org.openqa.selenium.support.Color;
 import pageObjects.GiftCardReceiverScreen;
 import testsBases.CommonTestBase;
 
@@ -19,13 +21,25 @@ public class GiftCardReceiverTest extends CommonTestBase {
     public static ExtentTest testReportForGiftCardReceiver;
 
     @Test
-    public void test_0_SetUpExtentTest() {
+    public void test_01_SetUpExtentTest() {
         testReportForGiftCardReceiver = singletonReport.extentReport
                 .createTest("Gift Card Receiver Screen Reports", "open BuyMeLandingPage, signIn existing user ");
     }
 
     @Test
-    public void test_1_ChooseReceiver(){
+    public void test_02_ExtrasReports() throws IOException {
+        extras.setExtrasTestReports("Extras for Receiver Screen", "Extras Gift Cards Screen assignment");
+    }
+
+
+    @Test
+    public void test_03_assertStepNameColor(){
+        final Color colour = Color.fromString(extras.getElement(extras.stepNameColorElement).getCssValue("color"));
+        Assert.assertEquals(extras.STEPNAMECOLOR, colour.asHex());
+    }
+
+    @Test
+    public void test_04_ChooseReceiver(){
 
         try{
             userAction.clickElement(giftReceiver.receiverOption);
@@ -41,8 +55,9 @@ public class GiftCardReceiverTest extends CommonTestBase {
     }
 
     @Test
-    public void test_2_inputReceiverName(){
+    public void test_05_inputReceiverName(){
         try{
+            userAction.clearFromText(giftReceiver.receiverNameElement);
             userAction.userInput(giftReceiver.receiverNameElement,giftReceiver.receiverName);
             isClicked = true;
         }catch (Exception e){
@@ -51,40 +66,36 @@ public class GiftCardReceiverTest extends CommonTestBase {
         }finally {
             if(isClicked)
                 testReportForGiftCardReceiver.log(Status.PASS, "receiver name input succeeded");
-
         }
     }
 
     @Test
-    public void test_3_GiftCardReasonDropMenu(){
+    public void test_06_inputSenderName(){
         try{
-            userAction.clickElement(giftReceiver.giftCardReasonDropMenu);
+            userAction.clearFromText(giftReceiver.senderNameElement);
+            userAction.userInput(giftReceiver.senderNameElement,giftReceiver.senedrName);
             isClicked = true;
         }catch (Exception e){
-            testReportForGiftCardReceiver.log(Status.ERROR, "gift card reason drop menu wasnt clicked");
+            testReportForGiftCardReceiver.log(Status.ERROR, "sender name input failed");
             testReportForGiftCardReceiver.log(Status.INFO, e.getMessage());
         }finally {
             if(isClicked)
-                testReportForGiftCardReceiver.log(Status.PASS, "gift card reason drop menu clicked succesfully");
+                testReportForGiftCardReceiver.log(Status.PASS, "sender name input succeeded");
         }
     }
 
     @Test
-    public void test_4_ChooseGiftCardReasonOption() {
-        try{
-            userAction.clickElement(giftReceiver.giftCardReasonOption);
-            isClicked = true;
-        }catch (Exception e){
-            testReportForGiftCardReceiver.log(Status.ERROR, "gift card reason from drop menu wasnt clicked");
-            testReportForGiftCardReceiver.log(Status.INFO, e.getMessage());
-        }finally {
-            if(isClicked)
-                testReportForGiftCardReceiver.log(Status.PASS, "gift card reason option from drop menu clicked succesfully");
-        }
+    public void test_07_assertReceiverName(){
+        Assert.assertEquals(giftReceiver.receiverName,extras.getElement(extras.receiverNamePreview).getText());
     }
 
     @Test
-    public void test_5_BlessingTextForGiftCard(){
+    public void test_08_assertSenderName(){
+        Assert.assertEquals(giftReceiver.senedrName,extras.getElement(extras.senderNamePreview).getText());
+    }
+
+    @Test
+    public void test_09_BlessingTextForGiftCard(){
         try{
             userAction.clearFromText(giftReceiver.blessingTextElement);
             userAction.userInput(giftReceiver.blessingTextElement,giftReceiver.blessingText);
@@ -99,7 +110,12 @@ public class GiftCardReceiverTest extends CommonTestBase {
     }
 
     @Test
-    public void test_7_GiftCardPaymentTime() {
+    public void test_10_assertBlessingText(){
+        Assert.assertEquals(giftReceiver.blessingText, extras.getElement(extras.blessingElement).getText());
+    }
+
+    @Test
+    public void test_11_GiftCardPaymentTime() {
         try{
             userAction.clickElement(giftReceiver.GiftPaymentTime);
             isClicked = true;
@@ -112,7 +128,7 @@ public class GiftCardReceiverTest extends CommonTestBase {
         }
     }
     @Test
-    public void test_4_LoadImage() throws InterruptedException {
+    public void test_12_LoadImage() throws InterruptedException {
         try{
             userAction.userInput(giftReceiver.loadImage,"/Users/igor_shved/Desktop/image.png");
             isClicked = true;
