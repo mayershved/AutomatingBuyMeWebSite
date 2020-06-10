@@ -21,6 +21,8 @@ public class Extras {
     public final String STEPNAMECOLOR = "#fab442";
 
     // class By variables
+    public By spinerElement = By.xpath("//body/div/img");
+
     public By emptyEmailAndPasswordWarning = By.xpath("//li[text() = 'כל המתנות מחכות לך! אבל קודם צריך מייל וסיסמה']");
 
     public By stepNameColorElement = By.cssSelector("div.step-title.highlighted");
@@ -32,6 +34,7 @@ public class Extras {
     public By blessingElement = By.cssSelector("p.card-text.cut-greeting");
 
 
+
     //class lists of web elements
     public List<WebElement> webElements;
 
@@ -39,23 +42,15 @@ public class Extras {
         webElements  = driver.findElements(element);
     }
 
-
     // class methods
 
     public void setExtrasTestReports(String testReportstitle, String description) {
         testReportsForExtras = extentReports.createTest(testReportstitle, description);
     }
 
-    public void scrollPage(int x, int y){
-        JavascriptExecutor js = (JavascriptExecutor)driver;
-        js.executeScript("javascript:window.scrollBy("+x+","+y+")");
-    }
-
     public WebElement getElement(By element){
         return driver.findElement(element);
     }
-
-
 
     public Extras(WebDriver driver, ExtentReports extentReports){
         this.driver = driver;

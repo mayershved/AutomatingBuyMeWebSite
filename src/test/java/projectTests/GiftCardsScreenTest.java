@@ -25,7 +25,7 @@ public class GiftCardsScreenTest extends CommonTestBase {
     }
 
     @Test
-    public void test_02_ExtrasReports() throws IOException {
+    public void test_02_ExtrasReports()  {
         extras.setExtrasTestReports("Extras for Gift Cards Screen", "Extras Gift Cards Screen assignment");
     }
 
@@ -33,7 +33,7 @@ public class GiftCardsScreenTest extends CommonTestBase {
     public void test_03_ScrollDownExtras() throws InterruptedException, IOException {
         Thread.sleep(1000);
         try {
-            extras.scrollPage(0, 3000);
+            userAction.scrollPage(0, 3000);
             isClicked = true;
         }catch (Exception e){
             extras.testReportsForExtras.log(Status.ERROR, "page was not scrolled down");
@@ -45,9 +45,9 @@ public class GiftCardsScreenTest extends CommonTestBase {
     }
 
     @Test
-    public void test_04_ScrolUpExtras() throws InterruptedException, IOException {
+    public void test_04_ScrolUpExtras() throws IOException {
         try {
-            extras.scrollPage(0, -5000);
+            userAction.scrollPage(0, -5000);
             isClicked = true;
         } catch (Exception e) {
             extras.testReportsForExtras.log(Status.ERROR, "page was not scrolled up");
@@ -59,7 +59,7 @@ public class GiftCardsScreenTest extends CommonTestBase {
     }
 
     @Test
-    public void test_05_ChooseGiftCardCompany() throws IOException, InterruptedException {
+    public void test_05_ChooseGiftCardCompany() throws IOException {
 
         screenShot.setScreenShotToReportDetails("Gift cards screen",testReportForGiftCardsScreen);
 

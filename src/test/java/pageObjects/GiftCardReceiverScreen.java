@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 
 public class GiftCardReceiverScreen {
 
+
     public String receiverName = "ReceiverName";
     public String senedrName = "SenderName";
     public String blessingText = "blessingText";
@@ -17,12 +18,10 @@ public class GiftCardReceiverScreen {
 
     public By giftCardReasonDropMenu = By.xpath("//span[text() = 'לאיזה אירוע?']");
 
-    // check how to click this element, not used in the test
     public By giftCardReasonOption = By.xpath("//*[text() = 'לידה']");
 
     public By blessingTextElement = By.xpath("//label[@class = 'ember-view ui-field ui-textarea']/textarea");
 
-    // check how to click this element, not used in the test
     public By loadImage = By.xpath("//div[@class = 'media-fields']/label/input");
 
     public By GiftPaymentTime = By.cssSelector("label.send-now");
@@ -31,7 +30,10 @@ public class GiftCardReceiverScreen {
 
     public  By emailForGiftCard = By.xpath("//input[@placeholder = 'כתובת המייל של מקבל/ת המתנה']");
 
-    public By confirmGiftEmail = By.cssSelector("button.btn.btn-theme.btn-save");
+    public By confirmGiftEmail = By.xpath("//button[text() = 'שמירה']");
 
     public By submitGiftCardReceiverDetails = By.xpath("//button[text() = 'תשלום']");
+
 }
+
+

@@ -1,7 +1,9 @@
 package commonMethods;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class UserActions {
 
@@ -11,7 +13,12 @@ public class UserActions {
         driver.get(URL);
     }
 
-    public void clickElement( By element){
+
+    public WebElement getWebElement(By element) {
+        return driver.findElement(element);
+    }
+
+        public void clickElement( By element){
         driver.findElement(element).click();
     }
 
@@ -25,6 +32,11 @@ public class UserActions {
 
     public void submit(By element){
         driver.findElement(element).submit();
+    }
+
+    public void scrollPage(int x, int y){
+        JavascriptExecutor js = (JavascriptExecutor)driver;
+        js.executeScript("javascript:window.scrollBy("+x+","+y+")");
     }
 
     public UserActions(WebDriver driver){

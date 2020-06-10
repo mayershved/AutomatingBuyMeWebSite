@@ -35,10 +35,11 @@ public class SignInTest extends SignIn_SignUp_TestBase {
 
     @Test
     public void test_03_OpenBuyMeLandingPage() throws IOException {
-
         userAction.navigateToWebPage(configData.getBuyMeLandingPageUrl());
-
+        System.out.println(extras.getElement(extras.spinerElement).getSize().getWidth());
         if (url.equals(singletonDriver.driver.getCurrentUrl())) {
+            System.out.println(extras.getElement(extras.spinerElement).getSize().getWidth());
+
             testReportForSignIn.log(Status.PASS, "BuyMe landing page is oppened");
             screenShot.setScreenShotToReportDetails("BuyMe landing page", testReportForSignIn);
         } else {

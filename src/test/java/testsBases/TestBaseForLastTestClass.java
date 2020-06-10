@@ -1,5 +1,6 @@
 package testsBases;
 
+import commonMethods.Extras;
 import commonMethods.UserActions;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -13,6 +14,7 @@ public class TestBaseForLastTestClass {
     protected static SingletonDriver singletonDriver = SingletonDriver.getInstance();
     protected static SingletonReport singletonReport;
     protected static UserActions userAction;
+    protected static Extras extras;
     protected boolean isClicked;
 
     @BeforeClass
@@ -20,6 +22,7 @@ public class TestBaseForLastTestClass {
         Thread.sleep(2000);
         singletonReport = SingletonReport.getInstance();
         userAction = new UserActions(singletonDriver.driver);
+        extras = new Extras(singletonDriver.driver, singletonReport.extentReport);
     }
 
     @Before
