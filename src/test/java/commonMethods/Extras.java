@@ -20,8 +20,8 @@ public class Extras {
     private static ExtentTest testReportsForExtras;
 
     // class constants
-    private final String ERRORMESSAGE = "כל המתנות מחכות לך! אבל קודם צריך מייל וסיסמה";
-    private final String STEPNAMECOLOR = "#fab442";
+    private static final String ERRORMESSAGE = "כל המתנות מחכות לך! אבל קודם צריך מייל וסיסמה";
+    private static final String STEPNAMECOLOR = "#fab442";
 
     // class By elements variables
     public By spinerElement = By.xpath("//body/div/img");
