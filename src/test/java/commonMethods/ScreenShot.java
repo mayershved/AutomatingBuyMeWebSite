@@ -6,21 +6,26 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * This class contrain methods to take ScreenShot
+ * and add it to certain test report
+ * @author Mayer Shved
+ */
 public class ScreenShot {
 
+    // class fields
     private static ProjectConfigData configData = new ProjectConfigData();
     private static final String pathToSaveScreenShot = configData.getScreenShotPath();
-
-    private static WebDriver driver;
+    private WebDriver driver;
 
     /***
      *
-     * @param pahtToScreenShot
-     * @return
+     * This method on calling take screenshot and return it
+     * @param pahtToScreenShot path where to save screenshot
+     * @return screenshot
      */
     private String takeScreenShot(String pahtToScreenShot) {
         TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
@@ -35,7 +40,9 @@ public class ScreenShot {
     }
 
     /**
-     * this method take screenshot and place to test report specified by method parameter
+     * this method take screenshot
+     * and place to test report
+     * specified by method parameter testReport
      * @param details screenshot case description
      * @param testReport specifies ExtentTest report place for screenshot
      * @throws IOException
@@ -45,6 +52,10 @@ public class ScreenShot {
         testReport.pass(details, MediaEntityBuilder.createScreenCaptureFromPath(takeScreenShot(pathToSaveScreenShot + currentTime)).build());
     }
 
+    /**
+     * class constructor
+     * @param driver
+     */
     public ScreenShot(WebDriver driver){
         this.driver = driver;
     }

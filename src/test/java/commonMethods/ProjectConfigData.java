@@ -8,10 +8,19 @@ import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * ProjectConfigData class implements to read data from xml file
+ * by calling getDataFromXml method, and getters to access class fields
+ * where is stored data from xml file
+ *
+ * @author Mayer Shved
+ */
 public class ProjectConfigData {
 
+    // variable that stores path to xml file
     private static final String CONFIGFILEPATH = "/Users/igor_shved/Documents/Java/QA_Experts/QA_Projects/Selenium/AutomatingBuyMeWebSite/config_buy_me.xml";
 
+    // class variables that contain data from xml file
     private String browserType = getDataFromXml("browserType");
     private String chromeDriverPath = getDataFromXml("chromeDriverPath");
     private String firefoxDriverPath = getDataFromXml("firefoxDriverPath");
@@ -22,46 +31,82 @@ public class ProjectConfigData {
     private String userEmail = getDataFromXml("userEmail");
     private String userPassword = getDataFromXml("userPassword");
 
-
+    //class fields getters
+    /***
+     * class field getter
+     * @return
+     */
     public String getBrowserType(){
         return this.browserType;
     }
 
+    /**
+     *class field getter
+     * @return
+     */
     public String getChromeDriverPath(){
         return this.chromeDriverPath;
     }
 
+    /**
+     *class field getter
+     * @return
+     */
     public String getFirefoxDriverPath(){
         return this.firefoxDriverPath;
     }
 
+    /**
+     *class field getter
+     * @return
+     */
     public String getBuyMeLandingPageUrl(){
         return  this.buyMeLandingPageUrl;
     }
 
+    /**
+     *class field getter
+     * @return
+     */
     public String getExtentReportsFilePath(){
         return this.extentReportsFilePath;
     }
 
+    /**
+     *class field getter
+     * @return
+     */
     public String getScreenShotPath(){
         return this.screenShotPath;
     }
 
+    /**
+     *class field getter
+     * @return
+     */
     public String getUserFirstName(){
         return this.userFirstName;
     }
 
+    /**
+     *class field getter
+     * @return
+     */
     public String getUserEmail(){
         return this.userEmail;
     }
 
+    /**
+     *class field getter
+     * @return
+     */
     public String getUserPassword(){
         return this.userPassword;
     }
 
     /***
      * This method is used to read data from XML file
-     * @param tagName tag name from XML project config file
+     * @param tagName tag name from XML project data file
      * @return string from tagName
      */
     private static String getDataFromXml(String tagName) {

@@ -6,10 +6,10 @@ import org.junit.runners.Suite;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
         SignInTest.class,
-        HomeScreenTest.class,
-        GiftCardsScreenTest.class,
-        GiftCardSupplierTest.class,
-        GiftCardReceiverTest.class,
+//        HomeScreenTest.class,
+//        GiftCardsScreenTest.class,
+//        GiftCardSupplierTest.class,
+//        GiftCardReceiverTest.class,
 })
 
 public class SuiteTest {
