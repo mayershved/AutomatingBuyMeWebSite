@@ -2,7 +2,6 @@ package commonMethods;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
-import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -20,6 +19,7 @@ public class UserActions {
 
     private WebDriver driver;
     private ExtentReports extentReports;
+    private final String IMAGEPATH = "/Users/igor_shved/Desktop/image.png";
 
     /**
      * go / navigate to web page
@@ -37,6 +37,10 @@ public class UserActions {
      */
     public WebElement getWebElement(By element) {
         return driver.findElement(element);
+    }
+
+    public String getImagePath(){
+        return IMAGEPATH;
     }
 
     /**

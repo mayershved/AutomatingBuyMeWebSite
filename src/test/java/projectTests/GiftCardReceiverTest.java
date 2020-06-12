@@ -194,7 +194,7 @@ public class GiftCardReceiverTest extends TestBaseForLastTestClass {
     @Test
     public void test_13_inputLoadImage() throws InterruptedException {
         try{
-            userAction.userInput(giftReceiver.loadImage,"/Users/igor_shved/Desktop/image.png");
+            userAction.userInput(giftReceiver.loadImage,userAction.getImagePath());
             isClicked = true;
         }catch (Exception e){
             testReportForGiftCardReceiver.log(Status.ERROR, "image was not loaded");

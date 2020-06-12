@@ -15,10 +15,10 @@ import org.junit.runners.Suite;
         SignInTest.class,
         //option to test SignUp
         //SignUp.class,
-//        HomeScreenTest.class,
-//        GiftCardsScreenTest.class,
-//        GiftCardSupplierTest.class,
-//        GiftCardReceiverTest.class,
+        HomeScreenTest.class,
+        GiftCardsScreenTest.class,
+        GiftCardSupplierTest.class,
+        GiftCardReceiverTest.class,
 })
 
 public class SuiteTest {
