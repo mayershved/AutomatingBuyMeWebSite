@@ -31,7 +31,6 @@ public class ProjectConfigData {
     private String userEmail = getDataFromXml("userEmail");
     private String userPassword = getDataFromXml("userPassword");
 
-    //class fields getters
     /***
      * class field getter
      * @return

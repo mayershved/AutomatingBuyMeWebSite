@@ -34,8 +34,6 @@ public class Extras {
     //class lists of web elements
     private static List<WebElement> webElements;
 
-    //class fields getters
-
     /**
      * class field getter
      * @return
@@ -59,6 +57,7 @@ public class Extras {
     public ExtentTest getTestReportsForExtras(){
         return testReportsForExtras;
     }
+
 
     /**
      * This method sets List webElements from By element that receive as parameter
@@ -88,6 +87,10 @@ public class Extras {
      */
     public WebElement getWebElement(By element){
         return driver.findElement(element);
+    }
+
+    public List<WebElement> getWebElements(){
+        return webElements;
     }
 
     /**

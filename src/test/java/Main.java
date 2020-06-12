@@ -3,6 +3,12 @@ import org.junit.runner.Result;
 import org.junit.runner.notification.Failure;
 import projectTests.SuiteTest;
 
+/**
+ * This program implements an application that
+ * automate BuyMe WebSite
+ *
+ * @author  Mayer Shved
+ */
 public class Main {
 
     public static void main(String[] args) {

@@ -8,27 +8,42 @@ import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import pageObjects.HomeScreen;
 import testsBases.CommonTestBase;
-
 import java.io.IOException;
 
+/**
+ * QA Automation tests for Home Screen
+ *
+ * @author Mayer Shved
+ */
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class HomeScreenTest extends CommonTestBase {
 
+    //class fields
     private ScreenShot screenShot = new ScreenShot(singletonDriver.driver);
     private HomeScreen homeScreen = new HomeScreen();
     private static ExtentTest testReportsForHomeScreen;
 
+    /**
+     * sets ExtentTest object for SignUp report
+     * @result Object of ExtentTest type must be created
+     * for SignUp test reports
+     */
     @Test
-    public void test_01_setExtendTest(){
-        testReportsForHomeScreen = singletonReport.extentReport
-                .createTest("Home Screen Reports", "test reports for Home Screen");
+    public void test_01_SetUpExtentTest(){
+        testReportsForHomeScreen = userAction
+                .createExtentTest
+                ("Home Screen Reports",
+                 "Open BuyMe landing page, singUp new user");
     }
 
+    /**
+     * click on price drop menu
+     * @result must open price drop menu
+     * @throws IOException
+     */
     @Test
-    public void test_02_PriceDropMenu() throws IOException {
-
+    public void test_02_clickPriceDropMenu() throws IOException {
         screenShot.setScreenShotToReportDetails("BuyMe landing page", testReportsForHomeScreen);
-
         try{
             userAction.clickElement(homeScreen.priceDropMenu);
             isClicked = true;
@@ -42,8 +57,12 @@ public class HomeScreenTest extends CommonTestBase {
         }
     }
 
+    /**
+     * click on price option from drop menu
+     * @result choose price amount option
+     */
     @Test
-    public void test_03_ChoosePrice(){
+    public void test_03_clickPriceOption(){
         try{
             userAction.clickElement(homeScreen.priceOption);
             isClicked = true;
@@ -56,8 +75,13 @@ public class HomeScreenTest extends CommonTestBase {
         }
     }
 
+    /**
+     * click on area drop menu
+     * @result must open area drop menu
+     * @throws IOException
+     */
     @Test
-    public void test_04_AreaDropMenu() throws IOException {
+    public void test_04_clickAreaDropMenu() throws IOException {
         try{
             userAction.clickElement(homeScreen.areaDropMenu);
             isClicked = true;
@@ -71,8 +95,12 @@ public class HomeScreenTest extends CommonTestBase {
         }
     }
 
+    /**
+     * click on area option from drop menu
+     * @result choose area option
+     */
     @Test
-    public void test_05_ChoseArea(){
+    public void test_05_clickAreaOption(){
         try{
             userAction.clickElement(homeScreen.areaOption);
             isClicked = true;
@@ -85,8 +113,12 @@ public class HomeScreenTest extends CommonTestBase {
         }
     }
 
-    @Test
-    public void test_06_CategoryDropMenu() throws IOException {
+    /**
+     * click on category drop menu
+     * @result must open category drop menu
+     * @throws IOException
+     */    @Test
+    public void test_06_clickCategoryDropMenu() throws IOException {
         try{
             userAction.clickElement(homeScreen.categoryDropMenu);
             isClicked = true;
@@ -100,8 +132,12 @@ public class HomeScreenTest extends CommonTestBase {
         }
     }
 
+    /**
+     * click on category option from drop menu
+     * @result choose category option
+     */
     @Test
-    public void test_07_ChooseCategory() {
+    public void test_07_clickCategoryOption() {
         try{
             userAction.clickElement(homeScreen.categoryOption);
             isClicked = true;
@@ -114,8 +150,12 @@ public class HomeScreenTest extends CommonTestBase {
         }
     }
 
+    /**
+     * @result click button to submit user chosen options
+     * @throws IOException
+     */
     @Test
-    public void test_08_SubmitUserSearch() throws IOException, InterruptedException {
+    public void test_08_clickSubmitUserSearch() throws IOException {
         screenShot.setScreenShotToReportDetails("gift card search info", testReportsForHomeScreen);
         try{
             userAction.clickElement(homeScreen.submitUserChoose);

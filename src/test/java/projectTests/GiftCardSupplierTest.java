@@ -12,26 +12,36 @@ import testsBases.CommonTestBase;
 
 import java.io.IOException;
 
+/**
+ * QA Automation tests for GiftCardSupplierScreen
+ * enter Gift card amount and choose gift card
+ *
+ * @author Mayer Shved
+ */
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class GiftCardSupplierTest extends CommonTestBase {
 
+    // class fields
     private GiftCardSupplierScreen giftCardSupplierScreen= new GiftCardSupplierScreen();
     private ScreenShot screenShot = new ScreenShot(singletonDriver.driver);
     private static ExtentTest testReportForGiftCardSupplierScreen;
 
+    /**
+     * create ExtentTest object for GiftCardSupplierScreen report
+     * @result Object of ExtentTest type must be created
+     * for  GiftCardSupplierScreen test reports
+     */
     @Test
-    public void test_0_SetUpExtentTest(){
-        testReportForGiftCardSupplierScreen = singletonReport.extentReport
-                .createTest("Gift Card Supplier Screen Reports", "submit gift card amount");
+    public void test_01_SetUpExtentTest(){
+        testReportForGiftCardSupplierScreen = userAction.createExtentTest(
+           "Gift Card Supplier Screen Reports",
+           "submit gift card amount");
     }
 
    @Test
-    public void test_1_giftCardMoneyAmount() throws IOException, InterruptedException {
-
+    public void test_02_inputGiftCardMoneyAmount() throws IOException, InterruptedException {
         Thread.sleep(1500);
-
         screenShot.setScreenShotToReportDetails("Gift card supplier screen", testReportForGiftCardSupplierScreen);
-
         try{
             userAction.userInput(giftCardSupplierScreen.inputGiftCardAmmount,giftCardSupplierScreen.giftCardMoneyAmount);
             isClicked = true;
@@ -46,7 +56,7 @@ public class GiftCardSupplierTest extends CommonTestBase {
     }
 
    @Test
-   public void test_2_chooseGiftCard() throws InterruptedException, IOException {
+   public void test_03_clickToChooseGiftCard(){
        try{
            userAction.clickElement(giftCardSupplierScreen.submitGiftCardMoneyAmount);
            isClicked = true;

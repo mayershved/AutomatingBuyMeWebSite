@@ -5,40 +5,57 @@ import com.aventstack.extentreports.Status;
 import commonMethods.Extras;
 import commonMethods.ProjectConfigData;
 import commonMethods.ScreenShot;
+import org.openqa.selenium.JavascriptExecutor;
 import pageObjects.SignIn;
 import org.junit.runners.MethodSorters;
 import org.junit.*;
 import testsBases.SignIn_SignUp_TestBase;
 import java.io.IOException;
 
+/**
+ * QA Automation tests for SignIn
+ *
+ * @author Mayer Shved
+ */
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class SignInTest extends SignIn_SignUp_TestBase {
 
+    //class fields
     private ScreenShot screenShot = new ScreenShot(singletonDriver.driver);
     private static Extras extras = new Extras(singletonDriver.driver, singletonReport.extentReport);
     private ProjectConfigData configData = new ProjectConfigData();
     private static SignIn signIn = new SignIn();
     private static ExtentTest testReportForSignIn;
-
     private String url = "https://buyme.co.il/";
 
+    /**
+     * sets ExtentTest object for SignIn report
+     * @result Object of ExtentTest type must be created
+     * for SignIn test reports
+     */
     @Test
     public void test_01_SetUpSignInExtentTest() {
-        testReportForSignIn = singletonReport.extentReport
-                .createTest("SingIn existing user", "open BuyMeLandingPage, signIn existing user ");
+        testReportForSignIn = userAction.createExtentTest
+                ("SingIn existing user",
+                "open BuyMeLandingPage, signIn existing user ");
     }
 
+    /**
+     * sets ExtentTest object for Extras assignments report
+     * @result Object of ExtentTest type must be created
+     * for  Extras assignments test reports
+     */
     @Test
     public void test_02_ExtrasReports(){
         extras.setExtrasTestReports("Extras for SignIn Screen", "Extras SignIn Screen assignment");
     }
 
+
     @Test
     public void test_03_OpenBuyMeLandingPage() throws IOException {
         userAction.navigateToWebPage(configData.getBuyMeLandingPageUrl());
-        System.out.println(extras.getElement(extras.spinerElement).getSize().getWidth());
         if (url.equals(singletonDriver.driver.getCurrentUrl())) {
-            System.out.println(extras.getElement(extras.spinerElement).getSize().getWidth());
+            System.out.println(extras.getWebElement(extras.spinerElement).getSize().getWidth());
 
             testReportForSignIn.log(Status.PASS, "BuyMe landing page is oppened");
             screenShot.setScreenShotToReportDetails("BuyMe landing page", testReportForSignIn);
@@ -48,8 +65,12 @@ public class SignInTest extends SignIn_SignUp_TestBase {
         }
     }
 
+    /**
+     * @result open SignIn modal
+     * @throws IOException
+     */
     @Test
-    public void test_04_ClickSignInSignUp() throws IOException {
+    public void test_04_clickSignInSignUp() throws IOException {
         try {
             userAction.clickElement(signIn.signUpSignInButton);
             isClicked = true;
@@ -63,27 +84,42 @@ public class SignInTest extends SignIn_SignUp_TestBase {
         }
     }
 
+    /**
+     * get error mesages / Extras asignments
+     * @throws IOException
+     */
     @Test
-    public void test_05_SignInUser() throws IOException {
-        SignInUser();
-        extras.testReportsForExtras.log(Status.FAIL, "missing user email and password");
-        screenShot.setScreenShotToReportDetails("error messages",extras.testReportsForExtras);
+    public void test_05_clickSignInUserToGetErrorsForExtras() throws IOException {
+        clickButtonToSignInUser();
+        extras.getTestReportsForExtras().log(Status.FAIL, "missing user email and password");
+        screenShot.setScreenShotToReportDetails("error messages",extras.getTestReportsForExtras());
     }
 
     @Test
-    public void test_06_assertEmailErrorMessage() {
-        extras.setListOfElements(extras.emptyEmailAndPasswordWarning);
-        Assert.assertEquals(extras.ERRORMESSAGE,extras.webElements.get(0).getText());
+    public void test_06_setWebElementsForEmailPasswordAsserts(){
+        extras.setListOfWebElements(extras.emptyEmailAndPasswordWarning);
+    }
+
+    /**
+     * assert message error for non email input
+     * @result assertion pass
+     */
+    @Test
+    public void test_07_assertEmailErrorMessage() {
+        Assert.assertEquals(extras.getErrorMessage(),extras.getWebElements().get(0).getText());
+    }
+
+    /**
+     * assert message error for non password input
+     * @result assertion pass
+     */
+    @Test
+    public void test_08_assertPasswordErrorMessage() {
+        Assert.assertEquals(extras.getErrorMessage(), extras.getWebElements().get(1).getText());
     }
 
     @Test
-    public void test_07_assertPasswordErrorMessage() {
-        extras.setListOfElements(extras.emptyEmailAndPasswordWarning);
-        Assert.assertEquals(extras.ERRORMESSAGE, extras.webElements.get(1).getText());
-    }
-
-    @Test
-    public void test_08_EnterEmail() {
+    public void test_09_inputEnterEmail() {
         try {
             userAction.userInput(signIn.emailAdressElement, configData.getUserEmail());
             isClicked = true;
@@ -97,7 +133,7 @@ public class SignInTest extends SignIn_SignUp_TestBase {
     }
 
     @Test
-    public void test_09_EnterPassword() throws IOException {
+    public void test_10_inputEnterPassword() throws IOException {
 
         try {
             userAction.userInput(signIn.passwordElement, configData.getUserPassword());
@@ -113,12 +149,15 @@ public class SignInTest extends SignIn_SignUp_TestBase {
     }
 
     @Test
-    public void test_10_signInUser(){
-        SignInUser();
+    public void test_11_clickButtonToSignInUser(){
+        clickButtonToSignInUser();
     }
 
-    //check if it is good implementation and cleane code
-    private void SignInUser(){
+    //check if it is good implementation and clean code
+    /**
+     * @result click button to submit existing user
+     */
+    private void clickButtonToSignInUser(){
         try {
             userAction.clickElement(signIn.signInUserButton);
             isClicked = true;

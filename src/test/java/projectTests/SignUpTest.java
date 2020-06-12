@@ -9,27 +9,39 @@ import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import pageObjects.SignUp;
 import testsBases.SignIn_SignUp_TestBase;
-
 import java.io.IOException;
 
+/**
+ * QA Automation tests for SignUp
+ *
+ * @author Mayer Shved
+ */
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class SignUpTest extends SignIn_SignUp_TestBase {
 
+    // class fields
     private ScreenShot screenShot = new ScreenShot(singletonDriver.driver);
     private ProjectConfigData configData = new ProjectConfigData();
     private static SignUp signUp = new SignUp();
     private static ExtentTest testReportForSignUp;
-
     private String url = "https://buyme.co.il/";
 
+    /**
+     * create ExtentTest object for SignUp report
+     * @result Object of ExtentTest type must be created
+     * for SignUp test reports
+     */
     @Test
-    public void test_0_SetUpExtentTest(){
-        testReportForSignUp = singletonReport.extentReport
-                .createTest("SingUp new user", "Open BuyMe landing page, singUp new user ");
+    public void test_01_SetUpExtentTest(){
+        testReportForSignUp = userAction.createExtentTest("SingUp new user","Open BuyMe landing page, singUp new user ");
     }
 
+    /**
+     * open BuyMe landing page
+     * @throws IOException
+     */
     @Test
-    public void test_1_OpenBuyMeLandingPage() throws IOException {
+    public void test_02_OpenBuyMeLandingPage() throws IOException {
 
         userAction.navigateToWebPage(configData.getBuyMeLandingPageUrl());
 
@@ -42,8 +54,12 @@ public class SignUpTest extends SignIn_SignUp_TestBase {
         }
     }
 
+    /**
+     *
+     * @throws IOException
+     */
     @Test
-    public void test_2_ClickSignInSignUp() throws IOException {
+    public void test_03_clickSignInSignUp() throws IOException {
         try{
             userAction.clickElement(signUp.signInSignUpButton);
             isClicked = true;
@@ -57,8 +73,12 @@ public class SignUpTest extends SignIn_SignUp_TestBase {
         }
     }
 
+    /**
+     * @result must transfer user to SignUp modal
+     * @throws IOException
+     */
     @Test
-    public void test_3_StartSignUp() throws IOException {
+    public void test_04_clickStartSignUp() throws IOException {
         try{
             userAction.clickElement(signUp.startSignUp);
             isClicked  = true;
@@ -73,7 +93,7 @@ public class SignUpTest extends SignIn_SignUp_TestBase {
     }
 
     @Test
-    public void test_4_EnterFirstName() {
+    public void test_05_inputEnterFirstName() {
         try{
             userAction.userInput(signUp.firstNameElement, configData.getUserFirstName());
             isClicked = true;
@@ -87,7 +107,7 @@ public class SignUpTest extends SignIn_SignUp_TestBase {
     }
 
     @Test
-    public void test_5_EnterEmail() {
+    public void test_06_inputEnterEmail() {
         try {
             userAction.userInput(signUp.emailAdressElement, configData.getUserEmail());
             isClicked = true;
@@ -101,7 +121,7 @@ public class SignUpTest extends SignIn_SignUp_TestBase {
     }
 
     @Test
-    public void test_6_EnterPassword() {
+    public void test_07_inputEnterPassword() {
 
         try{
             userAction.userInput(signUp.PasswordElement, configData.getUserPassword());
@@ -116,7 +136,7 @@ public class SignUpTest extends SignIn_SignUp_TestBase {
     }
 
     @Test
-    public void test_7_ConfirmPassword() {
+    public void test_08_inputConfirmPassword() {
         try{
             userAction.userInput(signUp.confirmPasswordElement, configData.getUserPassword());
             isClicked = true;
@@ -129,8 +149,14 @@ public class SignUpTest extends SignIn_SignUp_TestBase {
         }
     }
 
+    /**
+     * @result must click button to sign in existing user user
+     * according to input information
+     * @throws IOException
+     * @throws InterruptedException
+     */
     @Test
-    public void test_8_SignUpNewUser() throws IOException, InterruptedException {
+    public void test_09_clickSignUpNewUser() throws IOException, InterruptedException {
         screenShot.setScreenShotToReportDetails("user info",testReportForSignUp);
         try{
             userAction.clickElement(signUp.signUpNewUserButton);
@@ -145,5 +171,4 @@ public class SignUpTest extends SignIn_SignUp_TestBase {
         Thread.sleep(2000);
         screenShot.setScreenShotToReportDetails("BuyMe user home page", testReportForSignUp);
     }
-
 }

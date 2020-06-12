@@ -1,5 +1,8 @@
 package commonMethods;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -16,13 +19,14 @@ import org.openqa.selenium.WebElement;
 public class UserActions {
 
     private WebDriver driver;
+    private ExtentReports extentReports;
 
     /**
-     * go/ navigate to web page
+     * go / navigate to web page
      * @param URL
      */
     public void navigateToWebPage(String URL){
-        driver.get(URL);
+        driver.navigate().to(URL);
     }
 
     /**
@@ -74,10 +78,21 @@ public class UserActions {
     }
 
     /**
+     *
+     * @param testReportTitle
+     * @param testReportDscription
+     * @return object of class ExtentTest
+     */
+    public ExtentTest createExtentTest(String testReportTitle, String testReportDscription){
+        return extentReports.createTest(testReportTitle, testReportDscription);
+    }
+
+    /**
      * class constructor
      * @param driver
      */
-    public UserActions(WebDriver driver){
+    public UserActions(WebDriver driver, ExtentReports extentReports){
         this.driver = driver;
+        this.extentReports = extentReports;
     }
 }
