@@ -5,7 +5,6 @@ import com.aventstack.extentreports.Status;
 import commonMethods.Extras;
 import commonMethods.ProjectConfigData;
 import commonMethods.ScreenShot;
-import org.openqa.selenium.JavascriptExecutor;
 import pageObjects.SignIn;
 import org.junit.runners.MethodSorters;
 import org.junit.*;
@@ -47,7 +46,7 @@ public class SignInTest extends SignIn_SignUp_TestBase {
      */
     @Test
     public void test_02_ExtrasReports(){
-        extras.setExtrasTestReports("Extras for SignIn Screen", "Extras SignIn Screen assignment");
+        extras.setExtrasTestReports("Extras for SignIn Screen", "assert error messages");
     }
 
 
@@ -58,8 +57,8 @@ public class SignInTest extends SignIn_SignUp_TestBase {
             testReportForSignIn.log(Status.PASS, "BuyMe landing page is oppened");
             screenShot.setScreenShotToReportDetails("BuyMe landing page", testReportForSignIn);
         } else {
-            testReportForSignIn.log(Status.FAIL, "BuyMe landing page is not oppened");
-            screenShot.setScreenShotToReportDetails("BuyMe landing page", testReportForSignIn);
+            testReportForSignIn.log(Status.FAIL, "BuyMe landing page is not opened");
+            screenShot.setScreenShotToReportDetails("BuyMe landing page is not opened", testReportForSignIn);
         }
     }
 

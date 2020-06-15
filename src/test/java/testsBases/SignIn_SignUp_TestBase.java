@@ -73,7 +73,8 @@ public class SignIn_SignUp_TestBase {
     }
 
     @AfterClass
-    public static void tearDown_SignIn_SignUp_Test(){
+    public static void tearDown_SignIn_SignUp_Test() throws InterruptedException {
+        Thread.sleep(1000);
         singletonReport.extentReport.flush();
     }
 }

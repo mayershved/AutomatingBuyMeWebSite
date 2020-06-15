@@ -32,8 +32,8 @@ public class GiftCardsScreenTest extends CommonTestBase {
     public void test_01_SetUpExtentTest(){
         testReportForGiftCardsScreen = userAction
                 .createExtentTest
-                ("Home Screen Reports",
-                "Open BuyMe landing page, singUp new user");
+                ("GiftCardsScreen",
+                "choose gift card company");
     }
 
     /**
@@ -43,7 +43,7 @@ public class GiftCardsScreenTest extends CommonTestBase {
     */
     @Test
     public void test_02_ExtrasReports()  {
-        extras.setExtrasTestReports("Extras for Gift Cards Screen", "Extras Gift Cards Screen assignment");
+        extras.setExtrasTestReports("Extras for GiftCardsScreen", "scroll down, scroll up");
     }
 
     /**
@@ -64,7 +64,7 @@ public class GiftCardsScreenTest extends CommonTestBase {
             extras.getTestReportsForExtras().log(Status.INFO, e.getMessage());
         }finally {
             if (isClicked)
-                screenShot.setScreenShotToReportDetails("scroll to bottom of the Home Screen", extras.getTestReportsForExtras());
+                screenShot.setScreenShotToReportDetails("scroll to bottom of the GiftCardsScreen", extras.getTestReportsForExtras());
         }
     }
 
@@ -84,7 +84,7 @@ public class GiftCardsScreenTest extends CommonTestBase {
             extras.getTestReportsForExtras().log(Status.INFO, e.getMessage());
         } finally {
             if (isClicked)
-                screenShot.setScreenShotToReportDetails("scroll up the Home Screen", extras.getTestReportsForExtras());
+                screenShot.setScreenShotToReportDetails("scroll up GiftCardsScreen", extras.getTestReportsForExtras());
         }
     }
 

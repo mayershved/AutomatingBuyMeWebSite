@@ -33,9 +33,9 @@ public class HomeScreenTest extends CommonTestBase {
         testReportsForHomeScreen = userAction
                 .createExtentTest
                 ("Home Screen Reports",
-                 "Open BuyMe landing page, singUp new user");
+                 "Choose from drop menus price, area, category and submit for search");
     }
-
+//87143
     /**
      * click on price drop menu
      * @result must open price drop menu
@@ -43,7 +43,7 @@ public class HomeScreenTest extends CommonTestBase {
      */
     @Test
     public void test_02_clickPriceDropMenu() throws IOException {
-        screenShot.setScreenShotToReportDetails("BuyMe landing page", testReportsForHomeScreen);
+        screenShot.setScreenShotToReportDetails("BuyMe user home page", testReportsForHomeScreen);
         try{
             userAction.clickElement(homeScreen.priceDropMenu);
             isClicked = true;
