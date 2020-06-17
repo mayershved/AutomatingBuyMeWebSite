@@ -6,7 +6,7 @@
     <chromeDriverPath>/Users/igor_shved/Documents/Java/libraries/webDrivers/chromedriver</chromeDriverPath>
     <firefoxDriverPath>/Users/igor_shved/Documents/Java/libraries/webDrivers/geckodriver</firefoxDriverPath>
     <buyMeLandingPageUrl>https://buyme.co.il/</buyMeLandingPageUrl>
-    <extentReportsFilePath>/Users/igor_shved/Desktop/extent.html</extentReportsFilePath>
+    <extentReportsFilePath>/Users/igor_shved/Desktop/reports/BuyMeAutomationReport.html</extentReportsFilePath>
     <screenShotPath>/Users/igor_shved/Desktop/shots/</screenShotPath>
     <userFirstName>First Name</userFirstName>
     <userEmail>userEmail@email.com</userEmail>
