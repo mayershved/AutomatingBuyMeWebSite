@@ -19,7 +19,7 @@ import org.junit.runners.Suite;
 
         HomeScreenTest.class,
         GiftCardsScreenTest.class,
-//        GiftCardSupplierTest.class,
+        GiftCardSupplierTest.class,
 //        GiftCardReceiverTest.class,
 })
 

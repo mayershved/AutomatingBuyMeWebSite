@@ -1,13 +1,9 @@
 package projectTests;
 
-import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.Status;
-import commonMethods.ScreenShot;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import pageObjects.GiftCardSupplierScreen;
-
 import testsBases.CommonTestBase;
 
 import java.io.IOException;
@@ -21,10 +17,7 @@ import java.io.IOException;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class GiftCardSupplierTest extends CommonTestBase {
 
-    // class fields
     private GiftCardSupplierScreen giftCardSupplierScreen= new GiftCardSupplierScreen();
-    private ScreenShot screenShot = new ScreenShot(singletonDriver.driver);
-    private static ExtentTest testReportForGiftCardSupplierScreen;
 
     /**
      * create ExtentTest object for GiftCardSupplierScreen report
@@ -33,39 +26,21 @@ public class GiftCardSupplierTest extends CommonTestBase {
      */
     @Test
     public void test_01_SetUpExtentTest(){
-        testReportForGiftCardSupplierScreen = userAction.createExtentTest(
+        testReport = userAction.createExtentTest(
            "Gift Card Supplier Screen Reports",
            "submit gift card amount");
     }
 
    @Test
     public void test_02_inputGiftCardMoneyAmount() throws IOException, InterruptedException {
+        userAction.userInput(giftCardSupplierScreen.inputGiftCardAmmount,giftCardSupplierScreen.giftCardMoneyAmount);
         Thread.sleep(1500);
-        screenShot.setScreenShotToReportDetails("Gift card supplier screen", testReportForGiftCardSupplierScreen);
-        try{
-            userAction.userInput(giftCardSupplierScreen.inputGiftCardAmmount,giftCardSupplierScreen.giftCardMoneyAmount);
-            isClicked = true;
-        }catch (Exception e){
-            testReportForGiftCardSupplierScreen.log(Status.ERROR, "Gift card amount input is failed");
-            testReportForGiftCardSupplierScreen.log(Status.INFO, e.getMessage());
-        }finally {
-            if(isClicked)
-                testReportForGiftCardSupplierScreen.log(Status.PASS, "gift card amount input succeeded");
-                screenShot.setScreenShotToReportDetails("Gift card amount modal", testReportForGiftCardSupplierScreen);
-        }
-    }
+        screenShot.setScreenShotToReportDetails("Gift card supplier screen", testReport);
+
+   }
 
    @Test
-   public void test_03_clickToChooseGiftCard(){
-       try{
-           userAction.clickElement(giftCardSupplierScreen.submitGiftCardMoneyAmount);
-           isClicked = true;
-       }catch (Exception e){
-           testReportForGiftCardSupplierScreen.log(Status.ERROR, "Gift card was not choosen");
-           testReportForGiftCardSupplierScreen.log(Status.INFO, e.getMessage());
-       }finally {
-           if(isClicked)
-               testReportForGiftCardSupplierScreen.log(Status.PASS, "gift card was choosen");
-       }
+   public void test_03_clickToChoseGiftCard() throws IOException {
+       userAction.clickElement(giftCardSupplierScreen.submitGiftCardMoneyAmount);
    }
 }

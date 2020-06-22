@@ -57,7 +57,7 @@ public class HomeScreenTest extends CommonTestBase {
      * @throws IOException
      */
     @Test
-    public void test_04_clickAreaDropMenu() throws IOException {
+    public void test_04_clickAreaDropMenu(){
         userAction.clickElement(homeScreen.areaDropMenu);
     }
 
@@ -75,7 +75,7 @@ public class HomeScreenTest extends CommonTestBase {
      * @result must open category drop menu
      * @throws IOException
      */    @Test
-    public void test_06_clickCategoryDropMenu() throws IOException {
+    public void test_06_clickCategoryDropMenu(){
          userAction.clickElement(homeScreen.categoryDropMenu);
     }
 
