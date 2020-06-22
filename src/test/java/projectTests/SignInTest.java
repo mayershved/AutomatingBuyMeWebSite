@@ -1,10 +1,6 @@
 package projectTests;
 
-import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
-import commonMethods.Extras;
-import commonMethods.ProjectConfigData;
-import commonMethods.ScreenShot;
 import pageObjects.SignIn;
 import org.junit.runners.MethodSorters;
 import org.junit.*;
@@ -20,11 +16,7 @@ import java.io.IOException;
 public class SignInTest extends SignIn_SignUp_TestBase {
 
     //class fields
-    private ScreenShot screenShot = new ScreenShot(singletonDriver.driver);
-    private static Extras extras = new Extras(singletonDriver.driver, singletonReport.extentReport);
-    private ProjectConfigData configData = new ProjectConfigData();
     private static SignIn signIn = new SignIn();
-    private static ExtentTest testReportForSignIn;
     private String url = "https://buyme.co.il/";
 
     /**
@@ -34,7 +26,7 @@ public class SignInTest extends SignIn_SignUp_TestBase {
      */
     @Test
     public void test_01_SetUpSignInExtentTest() {
-        testReportForSignIn = userAction.createExtentTest
+        testReport = userAction.createExtentTest
                 ("SingIn existing user",
                 "open BuyMeLandingPage, signIn existing user ");
     }
@@ -51,14 +43,16 @@ public class SignInTest extends SignIn_SignUp_TestBase {
 
 
     @Test
-    public void test_03_OpenBuyMeLandingPage() throws IOException {
+    public void test_03_OpenBuyMeLandingPage() throws IOException, InterruptedException {
         userAction.navigateToWebPage(configData.getBuyMeLandingPageUrl());
         if (url.equals(singletonDriver.driver.getCurrentUrl())) {
-            testReportForSignIn.log(Status.PASS, "BuyMe landing page is oppened");
-            screenShot.setScreenShotToReportDetails("BuyMe landing page", testReportForSignIn);
+            testReport.log(Status.PASS, "BuyMe landing page is oppened");
+            Thread.sleep(2000);
+            screenShot.setScreenShotToReportDetails("BuyMe landing page", testReport);
         } else {
-            testReportForSignIn.log(Status.FAIL, "BuyMe landing page is not opened");
-            screenShot.setScreenShotToReportDetails("BuyMe landing page is not opened", testReportForSignIn);
+            testReport.log(Status.FAIL, "BuyMe landing page is not opened");
+            screenShot.setScreenShotToReportDetails("BuyMe landing page is not opened", testReport);
+            System.exit(-1);
         }
     }
 
@@ -70,14 +64,11 @@ public class SignInTest extends SignIn_SignUp_TestBase {
     public void test_04_clickSignInSignUp() throws IOException {
         try {
             userAction.clickElement(signIn.signUpSignInButton);
-            isClicked = true;
+            testReport.log(Status.PASS, "SignInSignUp button was clicked");
+            screenShot.setScreenShotToReportDetails("SignIn Modal", testReport);
         } catch (Exception e) {
-            testReportForSignIn.log(Status.ERROR, "SignInSignUp button was not clicked");
-            testReportForSignIn.log(Status.INFO, e.getMessage());
-        } finally {
-            if (isClicked)
-                testReportForSignIn.log(Status.PASS, "SignInSignUp button was clicked");
-                screenShot.setScreenShotToReportDetails("SignIn Modal", testReportForSignIn);
+            testReport.log(Status.ERROR, "SignInSignUp button was not clicked");
+            testReport.log(Status.INFO, e.getMessage());
         }
     }
 
@@ -119,13 +110,10 @@ public class SignInTest extends SignIn_SignUp_TestBase {
     public void test_09_inputEnterEmail() {
         try {
             userAction.userInput(signIn.emailAdressElement, configData.getUserEmail());
-            isClicked = true;
+            testReport.log(Status.PASS, "email input is passed");
         } catch (Exception e) {
-            testReportForSignIn.log(Status.ERROR, "email input failed");
-            testReportForSignIn.log(Status.INFO, e.getMessage());
-        } finally {
-            if (isClicked)
-                testReportForSignIn.log(Status.PASS, "email input is passed");
+            testReport.log(Status.ERROR, "email input failed");
+            testReport.log(Status.INFO, e.getMessage());
         }
     }
 
@@ -134,14 +122,11 @@ public class SignInTest extends SignIn_SignUp_TestBase {
 
         try {
             userAction.userInput(signIn.passwordElement, configData.getUserPassword());
-            isClicked = true;
+            testReport.log(Status.PASS, "password input is passed");
+            screenShot.setScreenShotToReportDetails("user info", testReport);
         } catch (Exception e) {
-            testReportForSignIn.log(Status.ERROR, "password input failed");
-            testReportForSignIn.log(Status.INFO, e.getMessage());
-        } finally {
-            if (isClicked)
-                testReportForSignIn.log(Status.PASS, "password input is passed");
-                screenShot.setScreenShotToReportDetails("user info", testReportForSignIn);
+            testReport.log(Status.ERROR, "password input failed");
+            testReport.log(Status.INFO, e.getMessage());
         }
     }
 
@@ -157,13 +142,10 @@ public class SignInTest extends SignIn_SignUp_TestBase {
     private void clickButtonToSignInUser(){
         try {
             userAction.clickElement(signIn.signInUserButton);
-            isClicked = true;
+            testReport.log(Status.PASS, "signIn button is pressed");
         } catch (Exception e) {
-            testReportForSignIn.log(Status.FAIL, "not succeeded to click button to signIn user");
-            testReportForSignIn.log(Status.INFO, e.getMessage());
-        } finally {
-            if (isClicked)
-                testReportForSignIn.log(Status.PASS, "signIn button is pressed");
+            testReport.log(Status.FAIL, "not succeeded to click button to signIn user");
+            testReport.log(Status.INFO, e.getMessage());
         }
     }
 }

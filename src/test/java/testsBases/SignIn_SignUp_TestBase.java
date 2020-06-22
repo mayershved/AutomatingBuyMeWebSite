@@ -2,8 +2,10 @@ package testsBases;
 
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
+import commonMethods.Extras;
+import commonMethods.ProjectConfigData;
+import commonMethods.ScreenShot;
 import commonMethods.UserActions;
-import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -29,9 +31,16 @@ public class SignIn_SignUp_TestBase {
     protected static SingletonDriver singletonDriver = SingletonDriver.getInstance();
     //instantinate new singletonReport object, to use common ExtentReport
     protected static SingletonReport singletonReport = SingletonReport.getInstance();
-    private static ExtentTest testReportsForWebDriverSetUp;
-    // instance of class that implements generic project methods
+
+
+    // instances that implements generic project methods
+    protected static ProjectConfigData configData = new ProjectConfigData();
+    protected static ScreenShot screenShot;
     protected static UserActions userAction;
+    protected static ExtentTest testReport;
+    protected static Extras extras;
+
+
     protected static boolean isClicked = false;
 
     /**
@@ -46,25 +55,27 @@ public class SignIn_SignUp_TestBase {
 
         singletonReport.setExtentReports();
 
-        testReportsForWebDriverSetUp = singletonReport.extentReport.createTest("WebDriver SetUp",
+        testReport = singletonReport.extentReport.createTest("WebDriver SetUp",
                 "SetUp WebDriver for the project");
 
         try {
             singletonDriver.setProjectDriver();
             establishedDriver = ((RemoteWebDriver) singletonDriver.driver).getCapabilities().getBrowserName().toLowerCase();
-            testReportsForWebDriverSetUp.log(Status.INFO, "In this project it is used " +establishedDriver+" WebDriver");
+            testReport.log(Status.INFO, "In this project it is used " +establishedDriver+" WebDriver");
             isDriverEstablished = true;
         } catch (Exception e) {
             e.printStackTrace();
-            testReportsForWebDriverSetUp.log(Status.FATAL, establishedDriver +" "+"WebDriver Connection Failed! ");
-            testReportsForWebDriverSetUp.log(Status.INFO, e.getMessage());
+            testReport.log(Status.FATAL, establishedDriver +" "+"WebDriver Connection Failed! ");
+            testReport.log(Status.INFO, e.getMessage());
             isDriverEstablished = false;
         } finally {
             if (isDriverEstablished) {
-                testReportsForWebDriverSetUp.log(Status.PASS, establishedDriver +" "+"WebDriver established successfully");
+                testReport.log(Status.PASS, establishedDriver +" "+"WebDriver established successfully");
             }
         }
         userAction = new UserActions(singletonDriver.driver, singletonReport.extentReport);
+        screenShot = new ScreenShot(singletonDriver.driver);
+        extras = new Extras(singletonDriver.driver, singletonReport.extentReport);
     }
 
     @Before

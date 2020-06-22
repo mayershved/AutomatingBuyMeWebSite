@@ -12,13 +12,15 @@ import org.junit.runners.Suite;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
         //option to test SignIn
-        SignInTest.class,
+        //SignInTest.class,
+
         //option to test SignUp
-        //SignUp.class,
-        HomeScreenTest.class,
-        GiftCardsScreenTest.class,
-        GiftCardSupplierTest.class,
-        GiftCardReceiverTest.class,
+        SignUpTest.class,
+
+//        HomeScreenTest.class,
+//        GiftCardsScreenTest.class,
+//        GiftCardSupplierTest.class,
+//        GiftCardReceiverTest.class,
 })
 
 public class SuiteTest {
