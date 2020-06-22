@@ -17,8 +17,8 @@ import org.junit.runners.Suite;
         //option to test SignUp
        // SignUpTest.class,
 
-//        HomeScreenTest.class,
-//        GiftCardsScreenTest.class,
+        HomeScreenTest.class,
+        GiftCardsScreenTest.class,
 //        GiftCardSupplierTest.class,
 //        GiftCardReceiverTest.class,
 })

@@ -4,7 +4,9 @@ import com.aventstack.extentreports.Status;
 import pageObjects.SignIn;
 import org.junit.runners.MethodSorters;
 import org.junit.*;
+import testsBases.CommonTestBase;
 import testsBases.SignIn_SignUp_TestBase;
+
 import java.io.IOException;
 
 /**

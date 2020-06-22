@@ -1,8 +1,6 @@
 package projectTests;
 
-import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
-import commonMethods.ScreenShot;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
@@ -19,9 +17,8 @@ import java.io.IOException;
 public class GiftCardsScreenTest extends CommonTestBase {
 
     //class fields
-    private ScreenShot screenShot = new ScreenShot(singletonDriver.driver);
     private GiftCardsScreen giftCardsScreen = new GiftCardsScreen();
-    private static ExtentTest testReportForGiftCardsScreen;
+
 
     /**
      * sets ExtentTest object for SignUp test extent report
@@ -30,7 +27,7 @@ public class GiftCardsScreenTest extends CommonTestBase {
      */
     @Test
     public void test_01_SetUpExtentTest(){
-        testReportForGiftCardsScreen = userAction
+        testReport = userAction
                 .createExtentTest
                 ("GiftCardsScreen",
                 "choose gift card company");
@@ -91,17 +88,17 @@ public class GiftCardsScreenTest extends CommonTestBase {
     @Test
     public void test_05_clickGiftCardCompany() throws IOException {
 
-        screenShot.setScreenShotToReportDetails("Gift cards screen",testReportForGiftCardsScreen);
+        screenShot.setScreenShotToReportDetails("Gift cards screen",testReport);
 
         try{
             userAction.clickElement(giftCardsScreen.giftCardCompany);
             isClicked = true;
         }catch (Exception e){
-            testReportForGiftCardsScreen.log(Status.ERROR, "gift card company was not clicked");
-            testReportForGiftCardsScreen.log(Status.INFO, e.getMessage());
+            testReport.log(Status.ERROR, "gift card company was not clicked");
+            testReport.log(Status.INFO, e.getMessage());
         }finally {
             if(isClicked)
-                testReportForGiftCardsScreen.log(Status.PASS, "gift card company was clicked");
+                testReport.log(Status.PASS, "gift card company was clicked");
         }
     }
 }

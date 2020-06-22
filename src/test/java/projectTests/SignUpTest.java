@@ -5,7 +5,9 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import pageObjects.SignUp;
+import testsBases.CommonTestBase;
 import testsBases.SignIn_SignUp_TestBase;
+
 import java.io.IOException;
 
 /**

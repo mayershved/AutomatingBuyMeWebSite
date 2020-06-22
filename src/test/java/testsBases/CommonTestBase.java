@@ -1,6 +1,8 @@
 package testsBases;
 
+import com.aventstack.extentreports.ExtentTest;
 import commonMethods.Extras;
+import commonMethods.ScreenShot;
 import commonMethods.UserActions;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -26,20 +28,15 @@ public class CommonTestBase {
     //instantinate new singletonDriver object, to use common WebDriver
     protected static SingletonDriver singletonDriver = SingletonDriver.getInstance();
     //instantinate new singletonReport object, to use common ExtentReport
-    protected static SingletonReport singletonReport;
-    // instance of class that implements generic project methods
-    protected static UserActions userAction;
-    // instance of class that implements Extras assignments
-    protected static Extras extras;
-    protected boolean isClicked;
+    protected static SingletonReport singletonReport = SingletonReport.getInstance();
 
-    @BeforeClass
-    public static void testBaseForHomeScreen(){
-        //instance for global ExtentReport
-        singletonReport = SingletonReport.getInstance();
-        userAction = new UserActions(singletonDriver.driver,singletonReport.extentReport);
-        extras = new Extras(singletonDriver.driver, singletonReport.extentReport);
-    }
+    // instance of class that implements generic project methods
+    protected static UserActions userAction = new UserActions(singletonDriver.driver,singletonReport.extentReport);
+    protected static ScreenShot screenShot = new ScreenShot(singletonDriver.driver);
+    protected static Extras extras = new Extras(singletonDriver.driver, singletonReport.extentReport);
+    protected static ExtentTest testReport;
+
+    protected boolean isClicked;
 
     @Before
     public void beforeEachTest(){
