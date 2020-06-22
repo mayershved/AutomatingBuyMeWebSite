@@ -35,10 +35,11 @@ public class SignUpTest extends SignIn_SignUp_TestBase {
      * @throws IOException
      */
     @Test
-    public void test_02_OpenBuyMeLandingPage() throws IOException {
+    public void test_02_OpenBuyMeLandingPage() throws IOException, InterruptedException {
         userAction.navigateToWebPage(configData.getBuyMeLandingPageUrl());
         if (url.equals(singletonDriver.driver.getCurrentUrl())) {
             testReport.log(Status.PASS, "BuyMe landing page it is oppened successfully");
+            Thread.sleep(2000);
             screenShot.setScreenShotToReportDetails("BuyMe landing page", testReport);
         }else {
             testReport.log(Status.FAIL, "BuyMe landing page is not oppened");

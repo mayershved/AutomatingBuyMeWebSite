@@ -62,14 +62,8 @@ public class SignInTest extends SignIn_SignUp_TestBase {
      */
     @Test
     public void test_04_clickSignInSignUp() throws IOException {
-        try {
-            userAction.clickElement(signIn.signUpSignInButton);
-            testReport.log(Status.PASS, "SignInSignUp button was clicked");
-            screenShot.setScreenShotToReportDetails("SignIn Modal", testReport);
-        } catch (Exception e) {
-            testReport.log(Status.ERROR, "SignInSignUp button was not clicked");
-            testReport.log(Status.INFO, e.getMessage());
-        }
+        userAction.clickElement(signIn.signUpSignInButton);
+        screenShot.setScreenShotToReportDetails("signIn modal",testReport);
     }
 
     /**
@@ -108,31 +102,18 @@ public class SignInTest extends SignIn_SignUp_TestBase {
 
     @Test
     public void test_09_inputEnterEmail() {
-        try {
-            userAction.userInput(signIn.emailAdressElement, configData.getUserEmail());
-            testReport.log(Status.PASS, "email input is passed");
-        } catch (Exception e) {
-            testReport.log(Status.ERROR, "email input failed");
-            testReport.log(Status.INFO, e.getMessage());
-        }
+        userAction.userInput(signIn.emailAdressElement, configData.getUserEmail());
     }
 
     @Test
     public void test_10_inputEnterPassword() throws IOException {
-
-        try {
-            userAction.userInput(signIn.passwordElement, configData.getUserPassword());
-            testReport.log(Status.PASS, "password input is passed");
-            screenShot.setScreenShotToReportDetails("user info", testReport);
-        } catch (Exception e) {
-            testReport.log(Status.ERROR, "password input failed");
-            testReport.log(Status.INFO, e.getMessage());
-        }
+        userAction.userInput(signIn.passwordElement, configData.getUserPassword());
     }
 
     @Test
     public void test_11_clickButtonToSignInUser(){
         clickButtonToSignInUser();
+        testReport.log(Status.PASS, "user signedIn successfully");
     }
 
     //check if it is good implementation and clean code
@@ -142,7 +123,6 @@ public class SignInTest extends SignIn_SignUp_TestBase {
     private void clickButtonToSignInUser(){
         try {
             userAction.clickElement(signIn.signInUserButton);
-            testReport.log(Status.PASS, "signIn button is pressed");
         } catch (Exception e) {
             testReport.log(Status.FAIL, "not succeeded to click button to signIn user");
             testReport.log(Status.INFO, e.getMessage());
