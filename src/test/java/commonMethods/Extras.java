@@ -1,10 +1,11 @@
 package commonMethods;
 
-import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import singleton.SingletonDriver;
+import singleton.SingletonReport;
+
 import java.util.List;
 
 /**
@@ -15,8 +16,8 @@ import java.util.List;
 public class Extras {
 
     // class variables
-    private WebDriver driver;
-    private ExtentReports extentReports;
+    private SingletonDriver singletonDriver = SingletonDriver.getInstance();
+    private SingletonReport singletonReport = SingletonReport.getInstance();
     private static ExtentTest testReportsForExtras;
 
     // class constants
@@ -65,7 +66,7 @@ public class Extras {
      * @param element By element
      */
     public void setListOfWebElements(By element){
-        webElements  = driver.findElements(element);
+        webElements  = singletonDriver.driver.findElements(element);
     }
 
 
@@ -76,7 +77,7 @@ public class Extras {
      * @param description
      */
     public void setExtrasTestReports(String testReporsTitle, String description) {
-        testReportsForExtras = extentReports.createTest(testReporsTitle, description);
+        testReportsForExtras = singletonReport.extentReport.createTest(testReporsTitle, description);
     }
 
     /**
@@ -86,20 +87,11 @@ public class Extras {
      * @return
      */
     public WebElement getWebElement(By element){
-        return driver.findElement(element);
+        return singletonDriver.driver.findElement(element);
     }
 
     public List<WebElement> getWebElements(){
         return webElements;
     }
 
-    /**
-     * Extras class constructor
-     * @param driver
-     * @param extentReports
-     */
-    public Extras(WebDriver driver, ExtentReports extentReports){
-        this.driver = driver;
-        this.extentReports = extentReports;
-    }
 }

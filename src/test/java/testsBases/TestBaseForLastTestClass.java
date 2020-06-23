@@ -24,11 +24,11 @@ public class TestBaseForLastTestClass {
     //instantinate new singletonReport object, to use common ExtentReport
     protected static SingletonReport singletonReport = SingletonReport.getInstance();
     // instance of class that implements common project methods
-    protected static UserActions userAction = new UserActions(singletonDriver.driver, singletonReport.extentReport);
+    protected static UserActions userAction = new UserActions();
     // instance of class that implements Extras assignments
-    protected static Extras extras = new Extras(singletonDriver.driver, singletonReport.extentReport);
+    protected static Extras extras = new Extras();
 
-    protected static ScreenShot screenShot = new ScreenShot(singletonDriver.driver);
+    protected static ScreenShot screenShot = new ScreenShot();
     protected static ExtentTest testReport;
 
     @AfterClass

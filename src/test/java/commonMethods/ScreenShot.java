@@ -5,7 +5,8 @@ import com.aventstack.extentreports.MediaEntityBuilder;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
+import singleton.SingletonDriver;
+
 import java.io.File;
 import java.io.IOException;
 
@@ -17,9 +18,9 @@ import java.io.IOException;
 public class ScreenShot {
 
     // class fields
+    private SingletonDriver singletonDriver = SingletonDriver.getInstance();
     private static ProjectConfigData configData = new ProjectConfigData();
     private static final String pathToSaveScreenShot = configData.getScreenShotPath();
-    private WebDriver driver;
 
     /***
      *
@@ -28,7 +29,7 @@ public class ScreenShot {
      * @return screenshot
      */
     private String takeScreenShot(String pahtToScreenShot) {
-        TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
+        TakesScreenshot takesScreenshot = (TakesScreenshot) singletonDriver.driver;
         File screenShotFile = takesScreenshot.getScreenshotAs(OutputType.FILE);
         File destinationFile = new File(pahtToScreenShot+".png");
         try {
@@ -50,13 +51,5 @@ public class ScreenShot {
     public void setScreenShotToReportDetails(String details, ExtentTest testReport) throws IOException {
         String currentTime = String.valueOf(System.currentTimeMillis());
         testReport.pass(details, MediaEntityBuilder.createScreenCaptureFromPath(takeScreenShot(pathToSaveScreenShot + currentTime)).build());
-    }
-
-    /**
-     * class constructor
-     * @param driver
-     */
-    public ScreenShot(WebDriver driver){
-        this.driver = driver;
     }
 }

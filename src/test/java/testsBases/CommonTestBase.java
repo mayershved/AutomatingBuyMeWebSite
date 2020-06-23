@@ -9,7 +9,7 @@ import singleton.SingletonDriver;
 import singleton.SingletonReport;
 
 /**
- * QA Automation to setUp preparations for tests
+ * Automation to setUp preparations for tests
  * included to Suite test,
  * first test and last test from Suite
  * do not extends CommonTestBase
@@ -25,9 +25,9 @@ public class CommonTestBase {
     protected static SingletonReport singletonReport = SingletonReport.getInstance();
 
     // instances that implements common project methods
-    protected static UserActions userAction = new UserActions(singletonDriver.driver,singletonReport.extentReport);
-    protected static ScreenShot screenShot = new ScreenShot(singletonDriver.driver);
-    protected static Extras extras = new Extras(singletonDriver.driver, singletonReport.extentReport);
+    protected static UserActions userAction = new UserActions();
+    protected static ScreenShot screenShot = new ScreenShot();
+    protected static Extras extras = new Extras();
     protected static ExtentTest testReport;
 
     @AfterClass

@@ -13,7 +13,7 @@ import singleton.SingletonDriver;
 import singleton.SingletonReport;
 
 /**
- * QA Automation to setUp preparations for
+ * Automation to setUp preparations for
  * SignIn, SignUp tests included to Suite test,
  * only first test from suite list can extend from SignIn_SignUp_TestBase class
  *
@@ -58,9 +58,9 @@ public class SignIn_SignUp_TestBase {
             testReport.log(Status.INFO, e.getMessage());
         }
 
-        userAction = new UserActions(singletonDriver.driver, singletonReport.extentReport);
-        screenShot = new ScreenShot(singletonDriver.driver);
-        extras = new Extras(singletonDriver.driver, singletonReport.extentReport);
+        userAction = new UserActions();
+        screenShot = new ScreenShot();
+        extras = new Extras();
     }
 
     @AfterClass

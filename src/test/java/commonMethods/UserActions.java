@@ -1,11 +1,11 @@
 package commonMethods;
 
-import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import singleton.SingletonDriver;
+import singleton.SingletonReport;
 
 /**
  *
@@ -17,8 +17,9 @@ import org.openqa.selenium.WebElement;
  */
 public class UserActions {
 
-    private WebDriver driver;
-    private ExtentReports extentReports;
+    private SingletonDriver singletonDriver = SingletonDriver.getInstance();
+    private SingletonReport singletonReport = SingletonReport.getInstance();
+    //private ExtentReports extentReports;
     private final String IMAGEPATH = "/Users/igor_shved/Desktop/image.png";
 
     /**
@@ -26,7 +27,7 @@ public class UserActions {
      * @param URL
      */
     public void navigateToWebPage(String URL){
-        driver.navigate().to(URL);
+        singletonDriver.driver.navigate().to(URL);
     }
 
     /**
@@ -36,7 +37,7 @@ public class UserActions {
      * @return
      */
     public WebElement getWebElement(By element) {
-        return driver.findElement(element);
+        return singletonDriver.driver.findElement(element);
     }
 
     public String getImagePath(){
@@ -48,7 +49,7 @@ public class UserActions {
      * @param element By element
      */
     public void clickElement( By element){
-        driver.findElement(element).click();
+        singletonDriver.driver.findElement(element).click();
     }
 
     /**
@@ -58,7 +59,7 @@ public class UserActions {
      * @param userInput
      */
     public void userInput(By element, String userInput){
-        driver.findElement(element).sendKeys(userInput);
+        singletonDriver.driver.findElement(element).sendKeys(userInput);
     }
 
     /**
@@ -67,7 +68,7 @@ public class UserActions {
      * @param element By element
      */
     public void clearFromText(By element){
-        driver.findElement(element).clear();
+        singletonDriver.driver.findElement(element).clear();
     }
 
     /**
@@ -77,7 +78,7 @@ public class UserActions {
      * @param y axis
      */
     public void scrollPage(int x, int y){
-        JavascriptExecutor js = (JavascriptExecutor)driver;
+        JavascriptExecutor js = (JavascriptExecutor)singletonDriver.driver;
         js.executeScript("javascript:window.scrollBy("+x+","+y+")");
     }
 
@@ -88,15 +89,14 @@ public class UserActions {
      * @return object of class ExtentTest
      */
     public ExtentTest createExtentTest(String testReportTitle, String testReportDscription){
-        return extentReports.createTest(testReportTitle, testReportDscription);
+        return singletonReport.extentReport.createTest(testReportTitle, testReportDscription);
     }
 
-    /**
-     * class constructor
-     * @param driver
-     */
-    public UserActions(WebDriver driver, ExtentReports extentReports){
-        this.driver = driver;
-        this.extentReports = extentReports;
-    }
+//    /**
+//     * class constructor
+//     * @param driver
+//     */
+//    public UserActions(){
+//
+//    }
 }
