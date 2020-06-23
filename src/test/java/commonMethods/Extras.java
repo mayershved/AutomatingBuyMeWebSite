@@ -8,9 +8,9 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 
 /**
- *  Extras class contains variables and methods to implement
- *  Extras assignments of the project
- * @author Mayer Shved
+ * Extras class contains variables and methods to implement
+ * Extras assignments of the project
+ * @author Meir Shved
  */
 public class Extras {
 

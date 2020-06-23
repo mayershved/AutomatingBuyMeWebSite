@@ -13,7 +13,7 @@ import org.openqa.selenium.WebElement;
  * and contain methods to execute user events,
  * also some methods used in project
  *
- * @author Mayer Shved
+ * @author Meir Shved
  */
 public class UserActions {
 

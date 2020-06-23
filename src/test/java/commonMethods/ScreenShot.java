@@ -12,7 +12,7 @@ import java.io.IOException;
 /**
  * This class contrain methods to take ScreenShot
  * and add it to certain test report
- * @author Mayer Shved
+ * @author Meir Shved
  */
 public class ScreenShot {
 

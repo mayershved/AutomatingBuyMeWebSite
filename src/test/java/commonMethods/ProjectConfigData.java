@@ -13,7 +13,7 @@ import java.io.IOException;
  * by calling getDataFromXml method, and getters to access class fields
  * where is stored data from xml file
  *
- * @author Mayer Shved
+ * @author Meir Shved
  */
 public class ProjectConfigData {
 
