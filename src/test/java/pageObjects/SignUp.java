@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 /**
  * SignUp Page Object
  *
- * @author Mayer Shved
+ * @author Meir Shved
  */
 public class SignUp {
 

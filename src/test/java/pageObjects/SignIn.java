@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 /**
  * SignIn Page Object
  *
- * @author Mayer Shved
+ * @author Meir Shved
  */
 public class SignIn {
 

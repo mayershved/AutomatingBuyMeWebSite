@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 /**
  * Gift Cards Screen Page Object
  *
- * @author Mayer Shved
+ * @author Meir Shved
  */
 public class GiftCardsScreen{
 
