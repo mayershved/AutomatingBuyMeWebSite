@@ -1,11 +1,10 @@
 package testsBases;
 
+import com.aventstack.extentreports.ExtentTest;
 import commonMethods.Extras;
+import commonMethods.ScreenShot;
 import commonMethods.UserActions;
-import org.junit.After;
 import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import singleton.SingletonDriver;
 import singleton.SingletonReport;
 
@@ -16,35 +15,21 @@ import singleton.SingletonReport;
  *
  * annotations @BeforeClass / @Before / @AfterClass
  *
- * @author Mayer Shved
+ * @author Meir Shved
  */
 public class TestBaseForLastTestClass {
-
-    //class fields
-    //for each class that extends TestBaseForLastTestClass class
 
     //instantinate new singletonDriver object, to use common WebDriver
     protected static SingletonDriver singletonDriver = SingletonDriver.getInstance();
     //instantinate new singletonReport object, to use common ExtentReport
-    protected static SingletonReport singletonReport;
-    // instance of class that implements generic project methods
-    protected static UserActions userAction;
+    protected static SingletonReport singletonReport = SingletonReport.getInstance();
+    // instance of class that implements common project methods
+    protected static UserActions userAction = new UserActions(singletonDriver.driver, singletonReport.extentReport);
     // instance of class that implements Extras assignments
-    protected static Extras extras;
-    protected boolean isClicked;
+    protected static Extras extras = new Extras(singletonDriver.driver, singletonReport.extentReport);
 
-    @BeforeClass
-    public static void testBaseForHomeScreen() throws InterruptedException {
-        Thread.sleep(2000);
-        singletonReport = SingletonReport.getInstance();
-        userAction = new UserActions(singletonDriver.driver, singletonReport.extentReport);
-        extras = new Extras(singletonDriver.driver, singletonReport.extentReport);
-    }
-
-    @Before
-    public void beforeEachTest(){
-        isClicked = false;
-    }
+    protected static ScreenShot screenShot = new ScreenShot(singletonDriver.driver);
+    protected static ExtentTest testReport;
 
     @AfterClass
     public static void tearDownHomeScreenTest() throws InterruptedException {
