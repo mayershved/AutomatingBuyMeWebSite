@@ -7,7 +7,7 @@ import projectTests.SuiteTest;
  * This program implements an application that
  * automate BuyMe WebSite
  *
- * @author  Mayer Shved
+ * @author  Meir Shved
  */
 public class Main {
 
