@@ -4,15 +4,13 @@ import com.aventstack.extentreports.Status;
 import pageObjects.SignIn;
 import org.junit.runners.MethodSorters;
 import org.junit.*;
-import testsBases.CommonTestBase;
 import testsBases.SignIn_SignUp_TestBase;
-
 import java.io.IOException;
 
 /**
- * QA Automation tests for SignIn
+ * Automation tests for SignIn
  *
- * @author Mayer Shved
+ * @author Meir Shved
  */
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class SignInTest extends SignIn_SignUp_TestBase {
@@ -108,7 +106,7 @@ public class SignInTest extends SignIn_SignUp_TestBase {
     }
 
     @Test
-    public void test_10_inputEnterPassword() throws IOException {
+    public void test_10_inputEnterPassword(){
         userAction.userInput(signIn.passwordElement, configData.getUserPassword());
     }
 

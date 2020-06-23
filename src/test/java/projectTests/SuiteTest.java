@@ -7,7 +7,7 @@ import org.junit.runners.Suite;
  * this class implements JUnit Suite as a runner
  * to bundle tests classes in one place to run them together
  *
- * @author Mayer Shved
+ * @author Meir Shved
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
@@ -20,7 +20,7 @@ import org.junit.runners.Suite;
         HomeScreenTest.class,
         GiftCardsScreenTest.class,
         GiftCardSupplierTest.class,
-//        GiftCardReceiverTest.class,
+        GiftCardReceiverTest.class,
 })
 
 public class SuiteTest {

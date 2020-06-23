@@ -1,8 +1,5 @@
 package projectTests;
 
-import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.Status;
-import commonMethods.ScreenShot;
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -14,18 +11,16 @@ import testsBases.TestBaseForLastTestClass;
 import java.io.IOException;
 
 /**
- * QA Automation tests for GiftCardReceiverScreen
+ * Automation tests for GiftCardReceiverScreen
  * enter Gift card amount and choose gift card
  *
- * @author Mayer Shved
+ * @author Meir Shved
  */
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class GiftCardReceiverTest extends TestBaseForLastTestClass {
 
     //class fields
     private GiftCardReceiverScreen  giftReceiver= new GiftCardReceiverScreen();
-    private ScreenShot screenShot = new ScreenShot(singletonDriver.driver);
-    public static ExtentTest testReportForGiftCardReceiver;
     private JavascriptExecutor js = (JavascriptExecutor)singletonDriver.driver;
 
     /**
@@ -35,7 +30,7 @@ public class GiftCardReceiverTest extends TestBaseForLastTestClass {
      */
     @Test
     public void test_01_SetUpExtentTest() {
-        testReportForGiftCardReceiver = userAction.createExtentTest(
+        testReport = userAction.createExtentTest(
            "Gift Card Receiver Screen Reports",
            "open BuyMeLandingPage, signIn existing user ");
     }
@@ -64,47 +59,19 @@ public class GiftCardReceiverTest extends TestBaseForLastTestClass {
 
     @Test
     public void test_03_clickRadioButtonReceiver(){
-        try{
-            userAction.clickElement(giftReceiver.receiverOption);
-            isClicked = true;
-        }catch (Exception e){
-            testReportForGiftCardReceiver.log(Status.ERROR, "receiver radio button was not clicked");
-            testReportForGiftCardReceiver.log(Status.INFO, e.getMessage());
-        }
-        finally {
-            if(isClicked)
-                testReportForGiftCardReceiver.log(Status.PASS, "receiver radio button was clicked");
-        }
+        userAction.clickElement(giftReceiver.receiverOption);
     }
 
     @Test
     public void test_04_inputReceiverName(){
-        try{
-            userAction.clearFromText(giftReceiver.receiverNameElement);
-            userAction.userInput(giftReceiver.receiverNameElement,giftReceiver.getReceiverName());
-            isClicked = true;
-        }catch (Exception e){
-            testReportForGiftCardReceiver.log(Status.ERROR, "receiver name input failed");
-            testReportForGiftCardReceiver.log(Status.INFO, e.getMessage());
-        }finally {
-            if(isClicked)
-                testReportForGiftCardReceiver.log(Status.PASS, "receiver name input succeeded");
-        }
+        userAction.clearFromText(giftReceiver.receiverNameElement);
+        userAction.userInput(giftReceiver.receiverNameElement,giftReceiver.getReceiverName());
     }
 
     @Test
     public void test_05_inputSenderName(){
-        try{
-            userAction.clearFromText(giftReceiver.senderNameElement);
-            userAction.userInput(giftReceiver.senderNameElement,giftReceiver.getSender_Name());
-            isClicked = true;
-        }catch (Exception e){
-            testReportForGiftCardReceiver.log(Status.ERROR, "sender name input failed");
-            testReportForGiftCardReceiver.log(Status.INFO, e.getMessage());
-        }finally {
-            if(isClicked)
-                testReportForGiftCardReceiver.log(Status.PASS, "sender name input succeeded");
-        }
+        userAction.clearFromText(giftReceiver.senderNameElement);
+        userAction.userInput(giftReceiver.senderNameElement,giftReceiver.getSender_Name());
     }
 
     /**
@@ -127,45 +94,18 @@ public class GiftCardReceiverTest extends TestBaseForLastTestClass {
 
     @Test
     public void test_08_clickGiftCardReasonDropMenu(){
-        try{
-            userAction.clickElement(giftReceiver.giftCardReasonDropMenu);
-            isClicked = true;
-        }catch (Exception e){
-            testReportForGiftCardReceiver.log(Status.ERROR, "gift card reason drop menu wasnt clicked");
-            testReportForGiftCardReceiver.log(Status.INFO, e.getMessage());
-        }finally {
-            if(isClicked)
-                testReportForGiftCardReceiver.log(Status.PASS, "gift card reason drop menu clicked succesfully");
-        }
+        userAction.clickElement(giftReceiver.giftCardReasonDropMenu);
     }
 
     @Test
     public void test_09_clickGiftCardReasonOption() {
-        try{
             userAction.clickElement(giftReceiver.giftCardReasonOption);
-            isClicked = true;
-        }catch (Exception e){
-            testReportForGiftCardReceiver.log(Status.ERROR, "gift card reason from drop menu wasnt clicked");
-            testReportForGiftCardReceiver.log(Status.INFO, e.getMessage());
-        }finally {
-            if(isClicked)
-                testReportForGiftCardReceiver.log(Status.PASS, "gift card reason option from drop menu clicked succesfully");
-        }
     }
 
     @Test
     public void test_10_inputBlessingTextForGiftCard(){
-        try{
-            userAction.clearFromText(giftReceiver.blessingTextElement);
-            userAction.userInput(giftReceiver.blessingTextElement,giftReceiver.getBlesingText());
-            isClicked = true;
-        }catch (Exception e){
-            testReportForGiftCardReceiver.log(Status.ERROR, "blessing text input failed");
-            testReportForGiftCardReceiver.log(Status.INFO, e.getMessage());
-        }finally {
-            if(isClicked)
-                testReportForGiftCardReceiver.log(Status.PASS, "blessing text input succeeded");
-        }
+        userAction.clearFromText(giftReceiver.blessingTextElement);
+        userAction.userInput(giftReceiver.blessingTextElement,giftReceiver.getBlesingText());
     }
 
     /**
@@ -179,97 +119,41 @@ public class GiftCardReceiverTest extends TestBaseForLastTestClass {
 
     @Test
     public void test_12_clickRadioButtonGiftCardPaymentTime() {
-        try{
-            userAction.clickElement(giftReceiver.GiftPaymentTime);
-            isClicked = true;
-        }catch (Exception e){
-            testReportForGiftCardReceiver.log(Status.ERROR, "when to pay radio button was not clicked");
-            testReportForGiftCardReceiver.log(Status.INFO, e.getMessage());
-        }finally {
-            if(isClicked)
-                testReportForGiftCardReceiver.log(Status.PASS, "when to pay radio button was clicked succesfully");
-        }
+        userAction.clickElement(giftReceiver.GiftPaymentTime);
     }
 
     @Test
     public void test_13_inputLoadImage() throws InterruptedException {
-        try{
-            userAction.userInput(giftReceiver.loadImage,userAction.getImagePath());
-            isClicked = true;
-        }catch (Exception e){
-            testReportForGiftCardReceiver.log(Status.ERROR, "image was not loaded");
-            testReportForGiftCardReceiver.log(Status.INFO, e.getMessage());
-        }finally {
-            if(isClicked)
-                testReportForGiftCardReceiver.log(Status.PASS, "image loaded succesfully");
-        }
-        Thread.sleep(7000);
+        userAction.userInput(giftReceiver.loadImage,userAction.getImagePath());
+        Thread.sleep(9000);
     }
 
     @Test
     public void test_14_clickSendGiftCardByEmail(){
-        try{
-            js.executeScript("arguments[0].click();", userAction.getWebElement(giftReceiver.sendGiftCardByEmail));
-            isClicked = true;
-        }catch(Exception e){
-            testReportForGiftCardReceiver.log(Status.ERROR, "email option was not clicked");
-            testReportForGiftCardReceiver.log(Status.INFO, e.getMessage());
-        }finally {
-            if(isClicked){
-                testReportForGiftCardReceiver.log(Status.PASS, "email option clicked succesfully");
-            }
-        }
+        js.executeScript("arguments[0].click();", userAction.getWebElement(giftReceiver.sendGiftCardByEmail));
     }
 
     @Test
     public void test_15_inputEmailForGiftCard(){
-        try{
-            userAction.clearFromText(giftReceiver.emailForGiftCard);
-            userAction.userInput(giftReceiver.emailForGiftCard,"ughruvghr@jefkh.com");
-            isClicked = true;
-        }catch (Exception e){
-           testReportForGiftCardReceiver.log(Status.ERROR, "receiver email input failed");
-            testReportForGiftCardReceiver.log(Status.INFO, e.getMessage());
-        }finally {
-            if(isClicked)
-                testReportForGiftCardReceiver.log(Status.PASS, "receiver email input succeeded");
-        }
+        userAction.clearFromText(giftReceiver.emailForGiftCard);
+        userAction.userInput(giftReceiver.emailForGiftCard,"ughruvghr@jefkh.com");
     }
     @Test
     public void test_16_clickConfirmGiftEmail() throws InterruptedException, IOException {
-        Thread.sleep(2000);
-        try{
-            js.executeScript("arguments[0].click();", userAction.getWebElement(giftReceiver.confirmGiftEmail));
-            isClicked = true;
-        }catch(Exception e){
-            testReportForGiftCardReceiver.log(Status.ERROR, "receiver email has not been confirmed");
-            testReportForGiftCardReceiver.log(Status.INFO, e.getMessage());
-        }finally {
-            if(isClicked)
-                testReportForGiftCardReceiver.log(Status.PASS, "receiver email confirmed succesfully");
-        }
-
+        //Thread.sleep(1000);
+        js.executeScript("arguments[0].click();", userAction.getWebElement(giftReceiver.confirmGiftEmail));
         userAction.scrollPage(0,-500);
-        Thread.sleep(2000);
-        screenShot.setScreenShotToReportDetails("gift card details", testReportForGiftCardReceiver);
+        Thread.sleep(1000);
+        screenShot.setScreenShotToReportDetails("gift card details", testReport);
         screenShot.setScreenShotToReportDetails(
            "asserts for Receiver Name, Sender Name, Blessing Text",
                 extras.getTestReportsForExtras());
     }
     @Test
     public void test_17_clickSubmitReceiverScreen() throws IOException, InterruptedException {
+//        Thread.sleep(3000);
+        userAction.clickElement(giftReceiver.submitGiftCardReceiverDetails);
         Thread.sleep(3000);
-        try {
-            userAction.clickElement(giftReceiver.submitGiftCardReceiverDetails);
-            isClicked = true;
-        } catch (Exception e) {
-            testReportForGiftCardReceiver.log(Status.ERROR, "gift card submit button was not clicked");
-            testReportForGiftCardReceiver.log(Status.INFO, e.getMessage());
-        } finally {
-            if (isClicked)
-                testReportForGiftCardReceiver.log(Status.PASS, "gift card submit button was clicked");
-                Thread.sleep(3000);
-                screenShot.setScreenShotToReportDetails("final Screen",testReportForGiftCardReceiver);
-        }
+        screenShot.setScreenShotToReportDetails("final Screen",testReport);
     }
 }

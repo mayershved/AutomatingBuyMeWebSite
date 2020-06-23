@@ -9,7 +9,7 @@ import singleton.SingletonDriver;
 import singleton.SingletonReport;
 
 /**
- * QA Automation to setUp preparations for the
+ * Automation to setUp preparations for the
  * last test from suite list,
  * only last test from suite list can extends TestBaseForLastTestClass class
  *
@@ -34,7 +34,7 @@ public class TestBaseForLastTestClass {
     @AfterClass
     public static void tearDownHomeScreenTest() throws InterruptedException {
         singletonReport.extentReport.flush();
-        Thread.sleep(1000);
+        Thread.sleep(500);
         singletonDriver.driver.quit();
     }
 }

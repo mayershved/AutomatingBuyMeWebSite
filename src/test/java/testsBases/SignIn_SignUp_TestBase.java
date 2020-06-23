@@ -51,6 +51,7 @@ public class SignIn_SignUp_TestBase {
             singletonDriver.setProjectDriver();
             establishedDriver = ((RemoteWebDriver) singletonDriver.driver).getCapabilities().getBrowserName().toLowerCase();
             testReport.log(Status.INFO, "In this project it is used " +establishedDriver+" WebDriver");
+            testReport.log(Status.PASS, establishedDriver + " driver is set successfully");
         } catch (Exception e) {
             e.printStackTrace();
             testReport.log(Status.FATAL, establishedDriver +" "+"WebDriver Connection Failed! ");

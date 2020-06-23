@@ -5,14 +5,13 @@ import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import pageObjects.GiftCardSupplierScreen;
 import testsBases.CommonTestBase;
-
 import java.io.IOException;
 
 /**
- * QA Automation tests for GiftCardSupplierScreen
+ * Automation tests for GiftCardSupplierScreen
  * enter Gift card amount and choose gift card
  *
- * @author Mayer Shved
+ * @author Meir Shved
  */
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class GiftCardSupplierTest extends CommonTestBase {
@@ -40,7 +39,7 @@ public class GiftCardSupplierTest extends CommonTestBase {
    }
 
    @Test
-   public void test_03_clickToChoseGiftCard() throws IOException {
+   public void test_03_clickToChoseGiftCard(){
        userAction.clickElement(giftCardSupplierScreen.submitGiftCardMoneyAmount);
    }
 }

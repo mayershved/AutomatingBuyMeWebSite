@@ -9,9 +9,9 @@ import testsBases.CommonTestBase;
 import java.io.IOException;
 
 /**
- * QA Automation tests for Home Screen
+ * Automation tests for Home Screen
  *
- * @author Mayer Shved
+ * @author Meir Shved
  */
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class HomeScreenTest extends CommonTestBase {
@@ -54,7 +54,6 @@ public class HomeScreenTest extends CommonTestBase {
     /**
      * click on area drop menu
      * @result must open area drop menu
-     * @throws IOException
      */
     @Test
     public void test_04_clickAreaDropMenu(){
@@ -73,8 +72,8 @@ public class HomeScreenTest extends CommonTestBase {
     /**
      * click on category drop menu
      * @result must open category drop menu
-     * @throws IOException
-     */    @Test
+     */
+    @Test
     public void test_06_clickCategoryDropMenu(){
          userAction.clickElement(homeScreen.categoryDropMenu);
     }
@@ -97,13 +96,10 @@ public class HomeScreenTest extends CommonTestBase {
         screenShot.setScreenShotToReportDetails("gift card search info", testReport);
         try{
             userAction.clickElement(homeScreen.submitUserChoose);
-            isClicked = true;
+            testReport.log(Status.PASS, "gift card search info submitted successfully");
         }catch (Exception e){
             testReport.log(Status.FAIL, "not succeeded to click button to submit gift card search info");
             testReport.log(Status.INFO, e.getMessage());
-        }finally {
-            if(isClicked)
-                testReport.log(Status.PASS, "gift card search info submitted successfully");
         }
     }
 }

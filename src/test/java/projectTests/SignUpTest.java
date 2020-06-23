@@ -5,15 +5,13 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import pageObjects.SignUp;
-import testsBases.CommonTestBase;
 import testsBases.SignIn_SignUp_TestBase;
-
 import java.io.IOException;
 
 /**
- * QA Automation tests for SignUp
+ * Automation tests for SignUp
  *
- * @author Mayer Shved
+ * @author Meir Shved
  */
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class SignUpTest extends SignIn_SignUp_TestBase {
@@ -49,21 +47,16 @@ public class SignUpTest extends SignIn_SignUp_TestBase {
         }
     }
 
-    /**
-     *
-     * @throws IOException
-     */
     @Test
-    public void test_03_clickSignInSignUp() throws IOException {
+    public void test_03_clickSignInSignUp(){
         userAction.clickElement(signUp.signInSignUpButton);
     }
 
     /**
      * @result must transfer user to SignUp modal
-     * @throws IOException
      */
     @Test
-    public void test_04_clickStartSignUp() throws IOException {
+    public void test_04_clickStartSignUp(){
         try{
             userAction.clickElement(signUp.startSignUp);
             testReport.log(Status.PASS, "StartSignUp button was clicked");
@@ -97,11 +90,9 @@ public class SignUpTest extends SignIn_SignUp_TestBase {
     /**
      * @result must click button to sign in existing user user
      * according to input information
-     * @throws IOException
-     * @throws InterruptedException
      */
     @Test
-    public void test_09_clickSignUpNewUser() throws IOException, InterruptedException {
+    public void test_09_clickSignUpNewUser() {
         try{
             userAction.clickElement(signUp.signUpNewUserButton);
             testReport.log(Status.PASS, "signUp button is pressed, new user was signedUp successfully");
